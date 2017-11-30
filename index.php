@@ -13,9 +13,10 @@ $data = json_decode($data_read); //var_dump( count($data) );
   <title>Oakland Tech Ecosystem Map</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-
+  <!--
   <script src=//unpkg.com/vue></script>
   <script src=//unpkg.com/vuebars@0.1.1></script>
+  !-->
 
   <style type="text/css">
   body {
@@ -70,7 +71,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
 
 <div class="ui stackable responsive grid main container">
   <div class="row">
-    <div class="six wide column">
+    <div class="four wide column">
       
       <form class="ui form">
         <h4 class="ui dividing header">Find a good fit:</h4>
@@ -130,7 +131,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
         </div>
         -->
     </div>
-    <div class="ui stackable ten wide column">
+    <div class="ui stackable twelve wide column">
         <div id="app">
           <bars
             :data="[1, 10, 3, 5, 8, 12, 5]"
@@ -142,9 +143,9 @@ $data = json_decode($data_read); //var_dump( count($data) );
       <div class="ui horizontal divider"></div>
       <div>
         <h2>Matching Providers</h2>
-        <div class="ui link cards">
+        <div class="ui three doubling cards">
         <?php foreach ($data as $k => $dat): ?>
-          <div class="card">
+          <div class="ui fluid card">
               <div class="image">
                 <!-- <img src="/images/avatar2/large/matthew.png"> -->
               </div>
