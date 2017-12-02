@@ -17,3 +17,4 @@ selenium-debug.log
 data/filters.txt
 
 /vendor/
+data.*.json
