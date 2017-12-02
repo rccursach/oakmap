@@ -42,7 +42,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
 
 <div class="ui fixed menu">
   <div class="ui container">
-    <a href="#" class="header item">
+    <a href="/" class="header item">
       Oakland Tech Ecosystem
     </a>
     <!--
@@ -75,17 +75,16 @@ $data = json_decode($data_read); //var_dump( count($data) );
       
       <form class="ui form">
         <h4 class="ui dividing header">Find a good fit:</h4>
-
         <div class="field">
           <div class="ui icon input">
             <i class="search icon"></i>
-            <input type="text" id="filter_name" placeholder="Search...">
+            <input type="text" id="search_name" placeholder="Search...">
           </div>
         </div>
 
         <div class="field">
           <label>Stage</label>
-          <select class="ui fluid dropdown">
+          <select class="ui fluid dropdown" id="search_stage">
             <option value=""></option>
             <option value="inspire">Inspire</option>
             <option value="plan">Plan</option>
@@ -98,7 +97,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
 
         <div class="field">
           <label>Target</label>
-          <select class="ui fluid dropdown">
+          <select class="ui fluid dropdown" id="search_target">
             <option value=""></option>
             <option value="small">Small</option>
             <option value="mid">Mid</option>
@@ -109,7 +108,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
 
         <div class="field">
           <label>Category</label>
-          <select class="ui fluid dropdown">
+          <select class="ui fluid dropdown" id="search_category">
             <option value=""></option>
             <option value="educationalInstitution">Educational Institution</option>
             <option value="ServiceProvider">Service Provider</option>
@@ -123,7 +122,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
 
         <div class="field">
           <label>Enabler</label>
-          <select class="ui fluid dropdown">
+          <select class="ui fluid dropdown" id="search_enabler">
             <option value=""></option>
             <option value="personal">Personal</option>
             <option value="financial">Financial</option>
@@ -163,17 +162,26 @@ $data = json_decode($data_read); //var_dump( count($data) );
         <div class="ui three doubling cards">
         <?php foreach ($data as $k => $dat): ?>
           <?php 
-            //var_dump($dat);
+            //var_dump($dat->subcategory);
           ?>
           <br/>     
-          <div class="ui fluid card">
+          <div class="ui fluid card"
+            data-name="<?php echo strtolower($dat->name); ?>"
+            data-stage="<?php echo strtolower(implode(' ', $dat->stage)); ?>"
+            data-target="<?php echo strtolower($dat->target); ?>"
+            data-category="<?php echo strtolower($dat->category); ?>"
+            data-enabler="<?php echo strtolower(implode(' ', $dat->enablerType)); ?>"
+          >
+              <!-- 
               <div class="image">
-                <!-- <img src="/images/avatar2/large/matthew.png"> -->
+                <img src="/images/avatar2/large/matthew.png"> 
               </div>
+              -->
               <div class="content">
                 <div class="header"><?php echo $dat->name; ?></div>
                 <div class="meta">
-                  <a>Service Provider</a>
+                  <span class="category"><?php if($dat->category) echo ucwords($dat->category); ?>
+                    <?php if($dat->subcategory) echo ': ' . ucwords($dat->subcategory); ?></span>
                 </div>
                 <div class="description">
                   <?php echo substr($dat->about, 0, 60); ?>
@@ -257,16 +265,55 @@ $data = json_decode($data_read); //var_dump( count($data) );
 <script src="/assets/jquery.min.js"></script>
 <script src="/assets/semantic.min.js"></script>
 <script>
+  //keep for now
   //new Vue({ el: '#app' });
 
   $(function() {
+    //initialize
     $('select.dropdown').dropdown();
     $('#match_count').text( $('div.card').length );
 
-    //$('#search_button').bind();
-    //console.log('hello');
-    //console.log( $('div.card').length );
-  });
+    //search filters
+    $('#search_button' ).on( "click", function(event) {
+      event.preventDefault();
+      $( "div.cards div.card" ).show();
 
+      var filters = [];
+      filters.search_name     = $("#search_name").val().toLowerCase();
+      filters.search_stage    = $("#search_stage").val().toLowerCase();
+      filters.search_target   = $("#search_target").val().toLowerCase();
+      filters.search_category = $("#search_category").val().toLowerCase();
+      filters.search_enabler  = $("#search_enabler").val().toLowerCase();
+      console.log( filters );
+
+      //filter on name
+      $( "div.cards div.card" ).each(function( index ) {
+
+        if(filters.search_name !='') {
+          $( this ).not( "[data-name *='"+ filters.search_name +"']" ).hide();
+        }
+        //filter on stage
+        if(filters.search_stage !='') {
+          $( this ).not( "[data-stage *= '"+ filters.search_stage +"']" ).hide();
+        }
+        //filter on target
+        if(filters.search_target !='') {
+          $( this ).not( "[data-target='"+ filters.search_target +"']" ).hide();
+        }
+        //filter on category
+        if(filters.search_category !='') {
+          $( this ).not( "[data-category='"+ filters.search_category +"']" ).hide();
+        }
+        //filter on enabler
+        if(filters.search_enabler !='') {
+          $( this ).not( "[data-enabler *='"+ filters.search_enabler +"']" ).hide();
+        }
+      });
+
+      //reset count
+      $('#match_count').text( $('div.card:visible').length );
+    });
+
+  });
 </script>
 </html>
