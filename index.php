@@ -2,6 +2,8 @@
 $data_read = file_get_contents('/Users/jose/dev/osn_mappingdata/data/data.oaktown.v1.json');
 $data = json_decode($data_read); //var_dump( count($data) );
 
+
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -79,44 +81,61 @@ $data = json_decode($data_read); //var_dump( count($data) );
         <div class="field">
           <div class="ui icon input">
             <i class="search icon"></i>
-            <input type="text" placeholder="Search...">
+            <input type="text" id="filter_name" placeholder="Search...">
           </div>
         </div>
 
         <div class="field">
           <label>Stage</label>
           <select class="ui fluid dropdown">
-            <option value="">Inspire</option>
-            <option value="free">Plan</option>
-            <option value="reduced">Launch</option>
+            <option value=""></option>
+            <option value="inspire">Inspire</option>
+            <option value="plan">Plan</option>
+            <option value="launch">Launch</option>
+            <option value="sustain">Sustain</option>
+            <option value="grow">Grow</option>
+            <option value="exit">Exit</option>
           </select>
         </div>
 
         <div class="field">
           <label>Target</label>
           <select class="ui fluid dropdown">
-            <option value="">Target</option>
-            <option value="early">Small</option>
-            <option value="post-revenue">Mid</option>
+            <option value=""></option>
+            <option value="small">Small</option>
+            <option value="mid">Mid</option>
+            <option value="high">High</option>
+            <option value="all">All</option>
           </select>
         </div>
 
         <div class="field">
           <label>Category</label>
           <select class="ui fluid dropdown">
-            <option value="">Category</option>
-            <option value="early">Investor</option>
-            <option value="post-revenue">Association</option>
+            <option value=""></option>
+            <option value="educationalInstitution">Educational Institution</option>
+            <option value="ServiceProvider">Service Provider</option>
+            <option value="Investor">Investor</option>
+            <option value="Government">Government</option>
+            <option value="Lender">Lender</option>
+            <option value="Association">Association</option>
+            <option value="Foundation">Foundation</option>
           </select>
         </div>
 
         <div class="field">
           <label>Enabler</label>
           <select class="ui fluid dropdown">
-            <option value="">Enabler</option>
-            <option value="T">Financial</option>
-            <option value="I">Environment</option>
+            <option value=""></option>
+            <option value="personal">Personal</option>
+            <option value="financial">Financial</option>
+            <option value="business">Business</option>
+            <option value="environment">Environment</option>
           </select>
+        </div>
+
+        <div class="field">
+          <button class="fluid ui black basic right floated button" id="search_button">Find a Fit</button>
         </div>
       </form>
         <!--
@@ -142,9 +161,13 @@ $data = json_decode($data_read); //var_dump( count($data) );
         </div>
       <div class="ui horizontal divider"></div>
       <div>
-        <h2>Matching Providers</h2>
+        <h2>Matching Providers <span id="match_count" class="note"></span></h2>
         <div class="ui three doubling cards">
         <?php foreach ($data as $k => $dat): ?>
+          <?php 
+            var_dump($dat -> );
+          ?>
+          <br/>     
           <div class="ui fluid card">
               <div class="image">
                 <!-- <img src="/images/avatar2/large/matthew.png"> -->
@@ -185,52 +208,67 @@ $data = json_decode($data_read); //var_dump( count($data) );
       <div class="ui stackable inverted divided grid">
         <div class="three wide column">
           <h4 class="ui inverted header">Group 1</h4>
+          <!-- 
           <div class="ui inverted link list">
             <a href="#" class="item">Link One</a>
             <a href="#" class="item">Link Two</a>
             <a href="#" class="item">Link Three</a>
             <a href="#" class="item">Link Four</a>
           </div>
+          -->
         </div>
         <div class="three wide column">
           <h4 class="ui inverted header">Group 2</h4>
+          <!-- 
           <div class="ui inverted link list">
             <a href="#" class="item">Link One</a>
             <a href="#" class="item">Link Two</a>
             <a href="#" class="item">Link Three</a>
             <a href="#" class="item">Link Four</a>
           </div>
+          -->
         </div>
         <div class="three wide column">
           <h4 class="ui inverted header">Group 3</h4>
+          <!--
           <div class="ui inverted link list">
             <a href="#" class="item">Link One</a>
             <a href="#" class="item">Link Two</a>
             <a href="#" class="item">Link Three</a>
             <a href="#" class="item">Link Four</a>
           </div>
+          -->
         </div>
         <div class="seven wide column">
-          <h4 class="ui inverted header">Footer Header</h4>
-          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          <h4 class="ui inverted header">Oakland Tech Ecosystem</h4>
+          <p>A project of the Oakland Startups Network and the Alliance for Community Development</p>
         </div>
       </div>
       <div class="ui inverted section divider"></div>
-      <!-- <img src="assets/images/logo.png" class="ui centered mini image"> -->
+      <!-- <img src="assets/images/logo.png" class="ui centered mini image"> 
       <div class="ui horizontal inverted small divided link list">
         <a class="item" href="#">Site Map</a>
         <a class="item" href="#">Contact Us</a>
         <a class="item" href="#">Terms and Conditions</a>
         <a class="item" href="#">Privacy Policy</a>
       </div>
+      -->
     </div>
   </div>
 </body>
 <script src="/assets/jquery.min.js"></script>
 <script src="/assets/semantic.min.js"></script>
 <script>
-  $('select.dropdown').dropdown();
+  //new Vue({ el: '#app' });
 
-  new Vue({ el: '#app' });
+  $(function() {
+    $('select.dropdown').dropdown();
+    $('#match_count').text( $('div.card').length );
+
+    //$('#search_button').bind();
+    //console.log('hello');
+    //console.log( $('div.card').length );
+  });
+
 </script>
 </html>
