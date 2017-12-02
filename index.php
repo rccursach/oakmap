@@ -165,7 +165,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
         <div class="ui three doubling cards">
         <?php foreach ($data as $k => $dat): ?>
           <?php 
-            var_dump($dat -> );
+            //var_dump($dat);
           ?>
           <br/>     
           <div class="ui fluid card">
