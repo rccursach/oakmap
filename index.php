@@ -9,6 +9,8 @@ $data = json_decode($data_read); //var_dump( count($data) );
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link href="https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/5835034b4c49fcf420658dab_oak-st-fav-32.png" rel="shortcut icon" type="image/x-icon">
+  <link href="https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/583503516f1a34017488280e_oak-st-fav.png" rel="apple-touch-icon">
   <!-- Site Properties -->
   <title>Oakland Tech Ecosystem Map</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
@@ -32,7 +34,6 @@ $data = json_decode($data_read); //var_dump( count($data) );
     margin: 5em 0em 0em;
     padding: 5em 0em;
   }
-
   </style>
 </head>
 <body>
@@ -155,18 +156,28 @@ $data = json_decode($data_read); //var_dump( count($data) );
         </div>
       <div class="ui horizontal divider"></div>
       <div>
-        <h2>Matching Providers <span id="match_count" class="note"></span></h2>
+        <h2>Matching Providers <span id="match_count" class="ui teal header"></span></h2>
         <div class="ui three doubling cards">
         <?php foreach ($data as $k => $dat): ?>
           <?php 
             //var_dump($dat->subcategory);
           ?>
           <br/>     
-          <div class="ui fluid card"
+          <div class="ui fluid <?php
+            if(in_array('personal',$dat->enablerType)){
+              echo 'purple';
+            }elseif(in_array('financial',$dat->enablerType)){
+              echo 'red';
+            }elseif(in_array('business',$dat->enablerType)){
+              echo 'blue';
+            }elseif(in_array('environmental',$dat->enablerType)){
+              echo 'green';
+            }
+            ?> card"
             data-name="<?php echo strtolower($dat->name); ?>"
             data-stage="<?php echo strtolower(implode(' ', $dat->stage)); ?>"
             data-target="<?php echo strtolower($dat->target); ?>"
-            data-category="<?php echo strtolower($dat->category); ?>"
+            data-category="<?php echo strtolower(str_replace(' ','',$dat->category)); ?>"
             data-enabler="<?php echo strtolower(implode(' ', $dat->enablerType)); ?>"
           >
               <!-- 
@@ -203,10 +214,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
     </div>
   </div>
 </div>
-
-
-
-  <div class="ui inverted vertical footer segment">
+<div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
       <div class="ui stackable inverted divided grid">
         <div class="three wide column">
@@ -257,9 +265,9 @@ $data = json_decode($data_read); //var_dump( count($data) );
       </div>
       -->
     </div>
-  </div>
+</div>
 </body>
-<script src="/assets/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
 <script>
   //keep for now
@@ -275,6 +283,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
       event.preventDefault();
       $( "div.cards div.card" ).show();
 
+      //set variables
       var filters = [];
       filters.search_name     = $("#search_name").val().toLowerCase();
       filters.search_stage    = $("#search_stage").val().toLowerCase();
@@ -283,9 +292,9 @@ $data = json_decode($data_read); //var_dump( count($data) );
       filters.search_enabler  = $("#search_enabler").val().toLowerCase();
       console.log( filters );
 
-      //filter on name
-      $( "div.cards div.card" ).each(function( index ) {
-
+      //simple filter
+      $( "div.cards div.card" ).each(function(index){
+        //filter on name
         if(filters.search_name !='') {
           $( this ).not( "[data-name *='"+ filters.search_name +"']" ).hide();
         }
@@ -295,7 +304,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
         }
         //filter on target
         if(filters.search_target !='') {
-          $( this ).not( "[data-target='"+ filters.search_target +"']" ).hide();
+          $( this ).not( "[data-target ='"+ filters.search_target +"']" ).hide();
         }
         //filter on category
         if(filters.search_category !='') {
@@ -309,6 +318,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
 
       //reset count
       $('#match_count').text( $('div.card:visible').length );
+      $("div.card:visible").transition('pulse');
     });
 
   });
