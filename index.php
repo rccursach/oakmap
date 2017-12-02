@@ -119,7 +119,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
         </div>
 
         <div class="field">
-          <label>Enabler</label>
+          <label>Enabler <i class="grey icon help" id="help_enabler"></i></label>
           <select class="ui fluid dropdown" id="search_enabler">
             <option value=""></option>
             <option value="personal">Personal</option>
@@ -127,6 +127,28 @@ $data = json_decode($data_read); //var_dump( count($data) );
             <option value="business">Business</option>
             <option value="environment">Environment</option>
           </select>
+        </div>
+
+        <div class="ui basic modal">
+          <div class="ui icon header">
+            <i class="archive icon"></i>
+            Enablers
+          </div>
+          <div class="content">
+            <h1 class="header">Enablers can be viewed with the following lenses:</h1>
+            <div class="ui huge middle aligned animated list">
+              <div class="item">PERSONAL enablers (mentors, education, etc.)</div>
+              <div class="item">FINANCIAL enablers (banks, investors, micro-finance, etc.)</div>
+              <div class="item">BUSINESS enablers (incubators, networking associations, etc.)</div>
+              <div class="item">ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</div>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui green ok inverted button">
+              <i class="checkmark icon"></i>
+              OK
+            </div>
+          </div>
         </div>
 
         <div class="field">
@@ -188,8 +210,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
               <div class="content">
                 <div class="header"><?php echo $dat->name; ?></div>
                 <div class="meta">
-                  <span class="category"><?php if($dat->category) echo ucwords($dat->category); ?>
-                    <?php if($dat->subcategory) echo ': ' . ucwords($dat->subcategory); ?></span>
+                  <span class="category"><?php if($dat->category) echo ucwords($dat->category); ?><?php if($dat->subcategory) echo ': ' . ucwords($dat->subcategory); ?></span>
                 </div>
                 <div class="description">
                   <?php echo substr($dat->about, 0, 60); ?>
@@ -200,11 +221,17 @@ $data = json_decode($data_read); //var_dump( count($data) );
                 <span class="right floated">
                   <?php echo $dat->yearsInOakland; ?> Years in Oakland
                 </span>
-                <?php endif?>
+                <?php endif; ?>
                 <span>
-                  <i class="linkedin icon"></i>
-                  <i class="twitter icon"></i>
-                  <i class="world icon"></i>
+                  <?php if( !empty($dat->website)): ?>
+                    <a href="<?php echo $dat->website; ?>"><i class="world icon"></i></a>
+                  <?php endif; ?>
+                  <?php if( !empty($dat->twitter)): ?>
+                    <a href="https://twitter.com/<?php echo $dat->twitter; ?>"><i class="twitter icon"></i></a>
+                  <?php endif; ?>
+                  <?php if( !empty($dat->address)): ?>
+                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($dat->address); ?>"><i class="map icon"></i></a>
+                  <?php endif; ?>
                 </span>
               </div>
           </div>
@@ -278,6 +305,10 @@ $data = json_decode($data_read); //var_dump( count($data) );
     $('select.dropdown').dropdown();
     $('#match_count').text( $('div.card').length );
 
+    $('#help_enabler').on( "click", function(event) {
+      $('.ui.basic.modal').modal('show');
+    });
+
     //search filters
     $('#search_button' ).on( "click", function(event) {
       event.preventDefault();
@@ -320,7 +351,6 @@ $data = json_decode($data_read); //var_dump( count($data) );
       $('#match_count').text( $('div.card:visible').length );
       $("div.card:visible").transition('pulse');
     });
-
   });
 </script>
 </html>
