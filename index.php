@@ -11,12 +11,9 @@ $data = json_decode($data_read); //var_dump( count($data) );
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <!-- Site Properties -->
   <title>Oakland Tech Ecosystem Map</title>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-  <!--
-  <script src=//unpkg.com/vue></script>
-  <script src=//unpkg.com/vuebars@0.1.1></script>
-  !-->
+  <script src=//unpkg.com/vue@2.5.9/dist/vue.min.js></script>
+  <script src=//unpkg.com/vuebars@0.1.1/dist/vue-bars.min.js></script>
 
   <style type="text/css">
   body {
@@ -247,7 +244,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
         </div>
         <div class="seven wide column">
           <h4 class="ui inverted header">Oakland Tech Ecosystem</h4>
-          <p>A project of the Oakland Startups Network and the Alliance for Community Development</p>
+          <p>A project of the Oakland Startup Network and the Alliance for Community Development</p>
         </div>
       </div>
       <div class="ui inverted section divider"></div>
@@ -263,10 +260,10 @@ $data = json_decode($data_read); //var_dump( count($data) );
   </div>
 </body>
 <script src="/assets/jquery.min.js"></script>
-<script src="/assets/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
 <script>
   //keep for now
-  //new Vue({ el: '#app' });
+  new Vue({ el: '#app' });
 
   $(function() {
     //initialize
