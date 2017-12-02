@@ -1,8 +1,6 @@
 <?php
-$data_read = file_get_contents('/Users/jose/dev/osn_mappingdata/data/data.oaktown.v1.json');
+$data_read = file_get_contents('./data/data.oaktown.v1.json');
 $data = json_decode($data_read); //var_dump( count($data) );
-
-
 
 ?><!DOCTYPE html>
 <html>
