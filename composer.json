@@ -1,4 +1,6 @@
 {
     "name": "ecosystem map",
-    "require": {}
+    "require": {
+      "php": "7.1.*"
+    }
 }
