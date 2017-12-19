@@ -115,10 +115,6 @@
         <h2>Matching Providers <span id="match_count" class="ui teal header"></span></h2>
         
         <div class="ui three doubling cards" v-for="dat in data" :key="dat.id">
-        <?php foreach ($data as $k => $dat): ?>
-          <?php 
-            //var_dump($dat->subcategory);
-          ?>
           <br/>     
           <div
             :class="'ui fluid card ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')"
@@ -134,34 +130,28 @@
               </div>
               -->
               <div class="content">
-                <div class="header"><?php echo $dat->name; ?></div>
+                <div class="header">{{ dat.name }}</div>
                 <div class="meta">
-                  <span class="category"><?php if($dat->category) echo ucwords($dat->category); ?><?php if($dat->subcategory) echo ': ' . ucwords($dat->subcategory); ?></span>
+                  <span class="category">{{ dat.category | capitalize }}
+                    {{ (dat.subcategory ? ': '+dat.subcategory : '') | capitalize }}
+                  </span>
                 </div>
                 <div class="description">
-                  <?php echo substr($dat->about, 0, 60); ?>
+                  {{ dat.about | truncate(60) }}
                 </div>
               </div>
               <div class="extra content">
-                <?php if( !empty($dat->yearsInOakland)): ?>
-                <span class="right floated">
-                  <?php echo $dat->yearsInOakland; ?> Years in Oakland
+
+                <span v-if="!!dat.yearsInOakland" class="right floated">
+                  {{ dat.yearsInOakland }} Years in Oakland
                 </span>
-                <?php endif; ?>
                 <span>
-                  <?php if( !empty($dat->website)): ?>
-                    <a href="<?php echo $dat->website; ?>"><i class="world icon"></i></a>
-                  <?php endif; ?>
-                  <?php if( !empty($dat->twitter)): ?>
-                    <a href="https://twitter.com/<?php echo $dat->twitter; ?>"><i class="twitter icon"></i></a>
-                  <?php endif; ?>
-                  <?php if( !empty($dat->address)): ?>
-                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($dat->address); ?>"><i class="map icon"></i></a>
-                  <?php endif; ?>
+                  <a v-if="!!dat.website" :href="dat.website"><i class="world icon"></i></a>
+                  <a v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="twitter icon"></i></a>
+                  <a v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="map icon"></i></a>
                 </span>
               </div>
           </div>
-        <?php endforeach; ?>
         </div>
       </div>
     </div>
@@ -187,8 +177,9 @@ export default {
   },
   methods: {
     loadData () {
-      window.$.get('../original_php/data/data.oaktown.v1.json', (data) => {
-        this.data = data
+      window.$.get('../original_php/data/data.oaktown.v1.json', (d) => {
+        console.log(d)
+        this.data = d
       })
     }
   },
