@@ -120,17 +120,8 @@
             //var_dump($dat->subcategory);
           ?>
           <br/>     
-          <div class="ui fluid <?php
-            if(in_array('personal',$dat->enablerType)){
-              echo 'purple';
-            }elseif(in_array('financial',$dat->enablerType)){
-              echo 'red';
-            }elseif(in_array('business',$dat->enablerType)){
-              echo 'blue';
-            }elseif(in_array('environmental',$dat->enablerType)){
-              echo 'green';
-            }
-            ?> card"
+          <div
+            :class="'ui fluid card ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')"
             :data-name="dat.name | lowercase"
             :data-target="dat.target | lowercase"
             :data-stage="dat.stage ? dat.stage.join(' ') : '' | lowercase"
@@ -185,7 +176,13 @@ export default {
   name: 'Home',
   data () {
     return {
-      data: []
+      data: [],
+      enClasses: {
+        personal: 'purple',
+        financial: 'red',
+        business: 'blue',
+        environmental: 'green'
+      }
     }
   },
   methods: {
