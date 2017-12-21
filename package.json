@@ -11,7 +11,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build": "node build/build.js",
-    "publish": "npm run build && rm -rf docs; cp -r dist docs && sed -i -e 's/src=\\//src=/g' docs/index.html ; sed -i -e 's/href=\\//href=/g' docs/index.html"
+    "publish": "npm run build && rm -rf docs; cp -r dist docs; cp -rp original_php/data docs/data;  sed -i -e 's/src=\\//src=localmap\\//g' docs/index.html ; sed -i -e 's/href=\\//href=localmap\\//g' docs/index.html"
   },
   "dependencies": {
     "jquery": "^3.2.1",

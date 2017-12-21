@@ -177,7 +177,7 @@ export default {
   },
   methods: {
     loadData () {
-      window.$.get('../original_php/data/data.oaktown.v1.json', (d) => {
+      window.$.get('localmap/data/data.oaktown.v1.json', (d) => {
         console.log(d)
         this.data = d
       })
