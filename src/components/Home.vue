@@ -114,43 +114,43 @@
       <div>
         <h2>Matching Providers <span id="match_count" class="ui teal header"></span></h2>
         
-        <div class="ui three doubling cards" v-for="dat in data" :key="dat.id">
-          <br/>     
-          <div
+        <div class="ui three doubling cards">
+          <br/>
+          <div v-for="dat in data" :key="dat.id"
             :class="'ui fluid card ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')"
             :data-name="dat.name | lowercase"
             :data-target="dat.target | lowercase"
             :data-stage="dat.stage ? dat.stage.join(' ') : '' | lowercase"
             :data-category="dat.category ? dat.category.replace(' ', '') : '' | lowercase"
             :data-enabler="dat.enablerType ? dat.enablerType.join(' ') : '' | lowercase"
-          >
-              <!-- 
-              <div class="image">
-                <img src="/images/avatar2/large/matthew.png"> 
+        >
+            <!-- 
+            <div class="image">
+              <img src="/images/avatar2/large/matthew.png"> 
+            </div>
+            -->
+            <div class="content">
+              <div class="header">{{ dat.name }}</div>
+              <div class="meta">
+                <span class="category">{{ dat.category | capitalize }}
+                  {{ (dat.subcategory ? ': '+dat.subcategory : '') | capitalize }}
+                </span>
               </div>
-              -->
-              <div class="content">
-                <div class="header">{{ dat.name }}</div>
-                <div class="meta">
-                  <span class="category">{{ dat.category | capitalize }}
-                    {{ (dat.subcategory ? ': '+dat.subcategory : '') | capitalize }}
-                  </span>
-                </div>
-                <div class="description">
-                  {{ dat.about | truncate(60) }}
-                </div>
+              <div class="description">
+                {{ dat.about | truncate(60) }}
               </div>
-              <div class="extra content">
+            </div>
+            <div class="extra content">
 
-                <span v-if="!!dat.yearsInOakland" class="right floated">
-                  {{ dat.yearsInOakland }} Years in Oakland
-                </span>
-                <span>
-                  <a v-if="!!dat.website" :href="dat.website"><i class="world icon"></i></a>
-                  <a v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="twitter icon"></i></a>
-                  <a v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="map icon"></i></a>
-                </span>
-              </div>
+              <span v-if="!!dat.yearsInOakland" class="right floated">
+                {{ dat.yearsInOakland }} Years in Oakland
+              </span>
+              <span>
+                <a v-if="!!dat.website" :href="dat.website"><i class="world icon"></i></a>
+                <a v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="twitter icon"></i></a>
+                <a v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="map icon"></i></a>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -190,5 +190,21 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .main.container {
+    margin-top: 3em;
+  }
+  .wireframe {
+    margin-top: 2em;
+  }
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
 </style>
