@@ -11,7 +11,10 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build": "node build/build.js",
-    "publish": "npm run build && rm -rf docs; cp -r dist docs; cp -rp original_php/data docs/data;  sed -i -e 's/src=\\//src=/g' docs/index.html ; sed -i -e 's/href=\\//href=/g' docs/index.html"
+    "publish": "npm run build && npm run pub-copy-files && npm run pub-clean-html && npm run pub-clean-css",
+    "pub-copy-files": "rm -rf docs; cp -r dist docs; cp -rp original_php/data docs/data",
+    "pub-clean-css": "find docs/static/css -type f -name \"*.css\" | xargs sed -i '' \"s/url(\\/static/url(static/g\"",
+    "pub-clean-html": "sed -i -e 's/src=\\//src=/g' docs/index.html ; sed -i -e 's/href=\\//href=/g' docs/index.html"
   },
   "dependencies": {
     "jquery": "^3.2.1",
