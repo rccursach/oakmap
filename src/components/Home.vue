@@ -178,7 +178,7 @@ export default {
   methods: {
     loadData () {
       window.$.get('data/data.oaktown.v1.json', (d) => {
-        console.log(d)
+        // console.log(d)
         this.data = d
       })
     }
