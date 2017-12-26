@@ -53,7 +53,7 @@
         </div>
 
         <div class="field">
-          <label>Enabler <i class="grey icon help" id="help_enabler"></i></label>
+          <label>Enabler <i class="grey icon help" id="help_enabler" v-on:click="showEnablerModal()" ></i></label>
           <select class="ui fluid dropdown" id="search_enabler">
             <option value=""></option>
             <option value="personal">Personal</option>
@@ -124,9 +124,9 @@
             :data-category="dat.category ? dat.category.replace(' ', '') : '' | lowercase"
             :data-enabler="dat.enablerType ? dat.enablerType.join(' ') : '' | lowercase"
         >
-            <!-- 
+            <!--
             <div class="image">
-              <img src="/images/avatar2/large/matthew.png"> 
+              <img src="/images/avatar2/large/matthew.png">
             </div>
             -->
             <div class="content">
@@ -181,10 +181,17 @@ export default {
         // console.log(d)
         this.data = d
       })
+    },
+    showEnablerModal () {
+      window.$('.ui.basic.modal').modal('show')
     }
   },
   created: function () {
     this.loadData()
+    var $ = window.$
+    // initialize
+    $('select.dropdown').dropdown()
+    $('#match_count').text($('div.card').length)
   }
 }
 </script>
@@ -206,5 +213,13 @@ export default {
   .ui.footer.segment {
     margin: 5em 0em 0em;
     padding: 5em 0em;
+  }
+  #help_enabler {
+    cursor: pointer;
+  }
+  #help_enabler:hover {
+    -moz-transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
   }
 </style>
