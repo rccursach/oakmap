@@ -86,7 +86,7 @@
         </div>
 
         <div class="field">
-          <button class="fluid ui black basic right floated button" id="search_button">Find a Fit</button>
+          <button class="fluid ui black basic right floated button" id="search_button" v-on:click.prevent="filterCards()">Find a Fit</button>
         </div>
       </form>
         <!--
@@ -112,7 +112,7 @@
         </div>
       <div class="ui horizontal divider"></div>
       <div>
-        <h2>Matching Providers <span id="match_count" class="ui teal header"></span></h2>
+        <h2>Matching Providers <span id="match_count" class="ui teal header">{{cards}}</span></h2>
         
         <div class="ui three doubling cards">
           <br/>
@@ -167,6 +167,7 @@ export default {
   data () {
     return {
       data: [],
+      cards: 0,
       enClasses: {
         personal: 'purple',
         financial: 'red',
@@ -184,6 +185,48 @@ export default {
     },
     showEnablerModal () {
       window.$('.ui.basic.modal').modal('show')
+    },
+    filterCards () {
+      var $ = window.$
+      $('div.cards div.card').show()
+
+      // set variables
+      var filters = []
+      filters.search_name = $('#search_name').val().toLowerCase()
+      filters.search_stage = $('#search_stage').val().toLowerCase()
+      filters.search_target = $('#search_target').val().toLowerCase()
+      filters.search_category = $('#search_category').val().toLowerCase()
+      filters.search_enabler = $('#search_enabler').val().toLowerCase()
+
+      console.log(filters)
+
+      // simple filter
+      $('div.cards div.card').each(function (index) {
+        // filter on name
+        if (filters.search_name !== '') {
+          $(this).not(`[data-name *='${filters.search_name}']`).hide()
+        }
+        // filter on stage
+        if (filters.search_stage !== '') {
+          $(this).not(`[data-stage *= '${filters.search_stage}']`).hide()
+        }
+        // filter on target
+        if (filters.search_target !== '') {
+          $(this).not(`[data-target ='${filters.search_target}']`).hide()
+        }
+        // filter on category
+        if (filters.search_category !== '') {
+          $(this).not(`[data-category='${filters.search_category}']`).hide()
+        }
+        // filter on enabler
+        if (filters.search_enabler !== '') {
+          $(this).not(`[data-enabler *='${filters.search_enabler}']`).hide()
+        }
+      })
+
+      // reset count
+      $('#match_count').text($('div.card:visible').length)
+      $('div .card:visible').transition('pulse')
     }
   },
   created: function () {
@@ -191,7 +234,7 @@ export default {
     var $ = window.$
     // initialize
     $('select.dropdown').dropdown()
-    $('#match_count').text($('div.card').length)
+    this.cards = $('div .card').length
   }
 }
 </script>
