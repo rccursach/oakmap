@@ -42,8 +42,8 @@
           <label>Category</label>
           <select class="ui fluid dropdown" id="search_category">
             <option value=""></option>
-            <option value="educationalInstitution">Educational Institution</option>
-            <option value="ServiceProvider">Service Provider</option>
+            <option value="Educational Institution">Educational Institution</option>
+            <option value="Service Provider">Service Provider</option>
             <option value="Investor">Investor</option>
             <option value="Government">Government</option>
             <option value="Lender">Lender</option>
@@ -116,14 +116,15 @@
         
         <div class="ui three doubling cards">
           <br/>
-          <div v-for="dat in data" :key="dat.id"
+          <div v-for="dat in mapData" :key="dat.id"
             :class="'ui fluid card ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')"
             :data-name="dat.name | lowercase"
             :data-target="dat.target | lowercase"
             :data-stage="dat.stage ? dat.stage.join(' ') : '' | lowercase"
             :data-category="dat.category ? dat.category.replace(' ', '') : '' | lowercase"
             :data-enabler="dat.enablerType ? dat.enablerType.join(' ') : '' | lowercase"
-        >
+            v-show="!dat.hide"
+          >
             <!--
             <div class="image">
               <img src="/images/avatar2/large/matthew.png">
@@ -166,7 +167,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      data: [],
+      mapData: [],
       cards: 0,
       enClasses: {
         personal: 'purple',
@@ -179,62 +180,63 @@ export default {
   methods: {
     loadData () {
       window.$.get('data/data.oaktown.v1.json', (d) => {
-        // console.log(d)
-        this.data = d
+        var values = Object.values(d)
+        this.mapData = values.map((md) => { md.hide = false; return md })
+        window.d = this.mapData
+        this.cards = this.mapData.length
       })
     },
     showEnablerModal () {
       window.$('.ui.basic.modal').modal('show')
     },
+    countCards () {
+      const reducer = (n, o) => n + (o.hide === true ? 1 : 0)
+      this.cards = this.mapData.length - this.mapData.reduce(reducer, 0)
+    },
     filterCards () {
-      var $ = window.$
-      $('div.cards div.card').show()
-
       // set variables
       var filters = []
-      filters.search_name = $('#search_name').val().toLowerCase()
-      filters.search_stage = $('#search_stage').val().toLowerCase()
-      filters.search_target = $('#search_target').val().toLowerCase()
-      filters.search_category = $('#search_category').val().toLowerCase()
-      filters.search_enabler = $('#search_enabler').val().toLowerCase()
+      filters.name = document.querySelector('#search_name').value.toLowerCase()
+      filters.stage = document.querySelector('#search_stage').value.toLowerCase()
+      filters.target = document.querySelector('#search_target').value.toLowerCase()
+      filters.category = document.querySelector('#search_category').value.toLowerCase()
+      filters.enablerType = document.querySelector('#search_enabler').value.toLowerCase()
 
-      console.log(filters)
-
-      // simple filter
-      $('div.cards div.card').each(function (index) {
-        // filter on name
-        if (filters.search_name !== '') {
-          $(this).not(`[data-name *='${filters.search_name}']`).hide()
-        }
-        // filter on stage
-        if (filters.search_stage !== '') {
-          $(this).not(`[data-stage *= '${filters.search_stage}']`).hide()
-        }
-        // filter on target
-        if (filters.search_target !== '') {
-          $(this).not(`[data-target ='${filters.search_target}']`).hide()
-        }
-        // filter on category
-        if (filters.search_category !== '') {
-          $(this).not(`[data-category='${filters.search_category}']`).hide()
-        }
-        // filter on enabler
-        if (filters.search_enabler !== '') {
-          $(this).not(`[data-enabler *='${filters.search_enabler}']`).hide()
-        }
+      // filter out empty filters, get filter keys
+      var fks = Object.keys(filters).filter(function (f) {
+        return filters[f] !== ''
       })
 
-      // reset count
-      $('#match_count').text($('div.card:visible').length)
-      $('div .card:visible').transition('pulse')
+      // for each object
+      this.mapData.forEach(function (d) {
+        d.hide = false
+        // for eack search key
+        fks.some(function (fk) { // Use .some to break immediately when d.hide === true
+          if (d[fk] && ['stage', 'enablerType'].includes(fk)) { // if key is one of those
+            if (!d[fk].join('').toLowerCase().includes(filters[fk].toLowerCase())) { // when the property exists and val != searched val
+              d.hide = true
+            }
+          } else if (fk === 'name') { // key is 'name', then val don't match substring searched
+            if (!d[fk].toLowerCase().includes(filters[fk].toLowerCase())) {
+              d.hide = true
+            }
+          } else if (d[fk] && d[fk].toLowerCase() !== filters[fk].toLowerCase()) { // any other key and direct values don't match
+            d.hide = true
+          } else if (!d[fk]) { // there is no key
+            d.hide = true
+          }
+          return d.hide // break .some if hide === true
+        })
+      })
+      // update count of cards
+      this.countCards()
+      // $('div .card:visible').transition('pulse') // <- this is terrible slow, like 6k msec slow
     }
   },
   created: function () {
     this.loadData()
-    var $ = window.$
-    // initialize
-    $('select.dropdown').dropdown()
-    this.cards = $('div .card').length
+    window.$('select.dropdown').dropdown()
+    this.cards = this.mapData.length
   }
 }
 </script>
