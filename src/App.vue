@@ -30,8 +30,10 @@
     </div>
 
     <router-view/>
-    
-    <appfooter/>
+
+    <div class="foo">
+      <appfooter/>
+    </div>
 
   </div>
 </template>
@@ -47,6 +49,21 @@ export default {
 </script>
 
 <style>
-
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+  .wireframe {
+    margin-top: 2em;
+  }
+  div .foo {
+    margin-top: calc(100vh - 700px);
+  }
 </style>
 

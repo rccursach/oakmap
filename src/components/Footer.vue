@@ -61,5 +61,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .footer {
+    max-height: 700px;
+  }
 </style>
