@@ -67,7 +67,7 @@ $data = json_decode($data_read); //var_dump( count($data) );
   </div>
 </div>
 
-<div class="ui stackable responsive grid main container">
+<div class="ui stackable responsive padded grid main container">
   <div class="row">
     <div class="four wide column">
       
