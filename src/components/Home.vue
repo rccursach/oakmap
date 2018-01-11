@@ -1,69 +1,80 @@
 <template>
   <div>
 <!--  -->
-<div class="ui stackable responsive grid main container">
+<div class="container is-fluid">
   <div class="row">
     <div class="four wide column">
       
-      <form class="ui form">
-        <h4 class="ui dividing header">Find a good fit:</h4>
-        <div class="field">
-          <div class="ui icon input">
-            <i class="search icon"></i>
-            <input type="text" id="search_name" placeholder="Search...">
+      <form class="form">
+        <h4 class="title is-4">Find a good fit:</h4>
+
+        <div class="field" aria-label="Search">
+          <div class="control has-icons-left">
+            <input class="input" type="text" id="search_name" placeholder="Search...">
+            <span class="icon is-small is-left">
+              <i class="fa fa-search"></i>
+            </span>
           </div>
         </div>
 
         <div class="field">
-          <label>Stage</label>
-          <select class="ui fluid dropdown" id="search_stage">
-            <option value=""></option>
-            <option value="inspire">Inspire</option>
-            <option value="plan">Plan</option>
-            <option value="launch">Launch</option>
-            <option value="sustain">Sustain</option>
-            <option value="grow">Grow</option>
-            <option value="exit">Exit</option>
-          </select>
+          <label class="label" aria-label="Stage">Stage</label>
+          <div class="select">
+            <select class="" id="search_stage">
+              <option value=""></option>
+              <option value="inspire">Inspire</option>
+              <option value="plan">Plan</option>
+              <option value="launch">Launch</option>
+              <option value="sustain">Sustain</option>
+              <option value="grow">Grow</option>
+              <option value="exit">Exit</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
-          <label>Target</label>
-          <select class="ui fluid dropdown" id="search_target">
-            <option value=""></option>
-            <option value="small">Small</option>
-            <option value="mid">Mid</option>
-            <option value="high">High</option>
-            <option value="all">All</option>
-          </select>
+          <label class="label" aria-label="Target">Target</label>
+          <div class="select">
+            <select class="" id="search_target">
+              <option value=""></option>
+              <option value="small">Small</option>
+              <option value="mid">Mid</option>
+              <option value="high">High</option>
+              <option value="all">All</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
-          <label>Category</label>
-          <select class="ui fluid dropdown" id="search_category">
-            <option value=""></option>
-            <option value="Educational Institution">Educational Institution</option>
-            <option value="Service Provider">Service Provider</option>
-            <option value="Investor">Investor</option>
-            <option value="Government">Government</option>
-            <option value="Lender">Lender</option>
-            <option value="Association">Association</option>
-            <option value="Foundation">Foundation</option>
-          </select>
+          <label class="label" aria-label="Category">Category</label>
+          <div class="select">
+            <select class="" id="search_category">
+              <option value=""></option>
+              <option value="Educational Institution">Educational Institution</option>
+              <option value="Service Provider">Service Provider</option>
+              <option value="Investor">Investor</option>
+              <option value="Government">Government</option>
+              <option value="Lender">Lender</option>
+              <option value="Association">Association</option>
+              <option value="Foundation">Foundation</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
-          <label>Enabler <i class="grey icon help" id="help_enabler" v-on:click="showEnablerModal()" ></i></label>
-          <select class="ui fluid dropdown" id="search_enabler">
-            <option value=""></option>
-            <option value="personal">Personal</option>
-            <option value="financial">Financial</option>
-            <option value="business">Business</option>
-            <option value="environment">Environment</option>
-          </select>
+          <label class="label" aria-label="Enabler">Enabler <i class="grey icon help" id="help_enabler" v-on:click="showEnablerModal()" ></i></label>
+          <div class="select">
+            <select class="" id="search_enabler">
+              <option value=""></option>
+              <option value="personal">Personal</option>
+              <option value="financial">Financial</option>
+              <option value="business">Business</option>
+              <option value="environment">Environment</option>
+            </select>
+          </div>
         </div>
 
-        <div class="ui basic modal">
+        <!-- <div class="ui basic modal">
           <div class="ui icon header">
             <i class="archive icon"></i>
             Enablers
@@ -83,10 +94,10 @@
               OK
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="field">
-          <button class="fluid ui black basic right floated button" id="search_button" v-on:click.prevent="filterCards()">Find a Fit</button>
+          <button class="button is-default" id="search_button" v-on:click.prevent="filterCards()">Find a Fit</button>
         </div>
       </form>
         <!--
@@ -163,6 +174,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Home',
   data () {
@@ -179,15 +192,23 @@ export default {
   },
   methods: {
     loadData () {
-      window.$.get('data/data.oaktown.v1.json', (d) => {
-        var values = Object.values(d)
-        this.mapData = values.map((md) => { md.hide = false; return md })
+      axios.get('data/data.oaktown.v1.json').then((d) => {
+        var values = Object.values(d.data)
+        this.mapData = values.map((md) => { md['hide'] = false; return md })
         window.d = this.mapData
         this.cards = this.mapData.length
+      }, (error) => {
+        console.log(error)
       })
+      // window.$.get('data/data.oaktown.v1.json', (d) => {
+      //   var values = Object.values(d)
+      //   this.mapData = values.map((md) => { md.hide = false; return md })
+      //   window.d = this.mapData
+      //   this.cards = this.mapData.length
+      // })
     },
     showEnablerModal () {
-      window.$('.ui.basic.modal').modal('show')
+      // window.$('.ui.basic.modal').modal('show')
     },
     countCards () {
       const reducer = (n, o) => n + (o.hide === true ? 1 : 0)
@@ -235,7 +256,7 @@ export default {
   },
   created: function () {
     this.loadData()
-    window.$('select.dropdown').dropdown()
+    // window.$('select.dropdown').dropdown()
     this.cards = this.mapData.length
   }
 }

@@ -1,33 +1,16 @@
 <template>
   <div id="app">
-    <div class="ui fixed menu">
-      <div class="ui container">
-        <a href="/" class="header item">
-          Oakland Tech Ecosystem
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/5835034b4c49fcf420658dab_oak-st-fav-32.png"
+            alt="Oakland Tech Ecosystem" xwidth="112" xheight="28">
         </a>
-        <!--
-        <a href="#" class="item">Home</a>
-        <div class="ui simple dropdown item">
-          Dropdown <i class="dropdown icon"></i>
-          <div class="menu">
-            <a class="item" href="#">Link Item</a>
-            <a class="item" href="#">Link Item</a>
-            <div class="divider"></div>
-            <div class="header">Header Item</div>
-            <div class="item">
-              <i class="dropdown icon"></i>
-              Sub Menu
-              <div class="menu">
-                <a class="item" href="#">Link Item</a>
-                <a class="item" href="#">Link Item</a>
-              </div>
-            </div>
-            <a class="item" href="#">Link Item</a>
-          </div>
+        <div class="navbar-item">
+          Oakland Tech Ecosystem
         </div>
-        !-->
       </div>
-    </div>
+    </nav>
 
     <router-view/>
 

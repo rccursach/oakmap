@@ -5,13 +5,12 @@ import App from './App'
 import router from './router'
 import Bars from 'vuebars'
 import Vue2Filters from 'vue2-filters'
+import 'font-awesome/css/font-awesome.css'
+// Require the main Sass manifest file
+require('./assets/sass/main.scss')
 
 Vue.use(Bars)
 Vue.use(Vue2Filters)
-
-window.$ = window.jQuery = require('jquery')
-require('semantic-ui-css/semantic.css')
-require('semantic-ui-css/semantic.js')
 
 Vue.config.productionTip = false
 
