@@ -144,7 +144,6 @@
                 </div>
                 <div class="card-content">
                   {{ dat.about | truncate(60) }}
-                  {{ dat.enablerType.map(function (e) { return enClasses[e] }).join(' ') }}
                 </div>
                 <footer :class="'card-footer ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')">
                   <div>
