@@ -124,46 +124,48 @@
             </bars>
           </div> -->
 
-          <h2 class="title is-4">Matching Providers <span id="match_count" class="ui teal header">{{cards}}</span></h2>
+          <h2 class="title is-4">Matching Providers <span class="">{{cards}}</span></h2>
          
-          <div class="columns flex-row">
-            <div class="actor column is-one-third" v-for="dat in mapData" :key="dat.id" v-show="!dat.hide">
-              <div
-                :class="'card ixs-3' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')"
-                :data-name="dat.name | lowercase"
-                :data-target="dat.target | lowercase"
-                :data-stage="dat.stage ? dat.stage.join(' ') : '' | lowercase"
-                :data-category="dat.category ? dat.category.replace(' ', '') : '' | lowercase"
-                :data-enabler="dat.enablerType ? dat.enablerType.join(' ') : '' | lowercase"
-              >
-                <header class="card-header">
-                  <p class="card-header-title">{{ dat.name }}</p>
-                </header>
-
-                <div class="card-content">
-                  <div class="content">
-                      <span class="category is-size-7">
-                        {{ dat.category | capitalize | truncate(20)}}, {{ (dat.subcategory ? ': '+dat.subcategory : '') | capitalize | truncate(20)}}
-                      </span>
-                      <br>
-                      {{ dat.about | truncate(30) }}
+          <div class="columns is-multiline is-3 is-mobile">
+            <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile" v-for="dat in mapData" :key="dat.id" v-show="!dat.hide">
+              <div class="card">
+                <div class="card-header">
+                  <div class="media-content">
+                    <p class="title is-5">{{ dat.name }}</p>
+                    <p class="subtitle is-7 is-capitalized">
+                      {{ dat.category }}
+                      {{ (dat.subcategory ? ': '+dat.subcategory : '') | truncate(50) }}
+                    </p>
                   </div>
                 </div>
-                <div class="card-footer">
-                  &nbsp;
-                  <span v-if="!!dat.yearsInOakland" class="right floated">
-                    {{ dat.yearsInOakland }} Years in Oakland
-                  </span>
-                  <span>
-                    <a v-if="!!dat.website" :href="dat.website"><i class="fa fa-globe"></i></a>
-                    <a v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="fa fa-twitter"></i></a>
-                    <a v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="fa fa-map"></i></a>
-                  </span>
+                <div class="card-content">
+                  {{ dat.about | truncate(60) }}
+                  {{ dat.enablerType.map(function (e) { return enClasses[e] }).join(' ') }}
                 </div>
-              </div> <!-- end card -->
+                <footer :class="'card-footer ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')">
+                  <div>
+                    
+                    <span>
+                      <a v-if="!!dat.website" :href="dat.website"><i class="fa fa-globe"></i></a>
+                      <a v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="fa fa-twitter"></i></a>
+                      <a v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="fa fa-map"></i></a>
+                      &nbsp;
+                      <span v-if="!!dat.yearsInOakland" class="is-size-7 has-text-right">
+                        <!-- there are two spans because of weird data as long text in some objects -->
+                        <span v-if="isNaN(dat.yearsInOakland)">
+                          {{ dat.yearsInOakland | truncate(10) }} Years in Oakland
+                        </span>
+                        <span v-if="!isNaN(dat.yearsInOakland)">
+                          {{ dat.yearsInOakland }} Years in Oakland
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </footer>
+              </div>
             </div>
-            <!-- end v-for -->
-          </div> <!-- end is-flex -->
+            <!-- end column v-for -->
+          </div> <!-- end columns-multi -->
         </div> <!-- end column -->
 
       </div><!-- end columns -->
@@ -182,10 +184,10 @@ export default {
       mapData: [],
       cards: 0,
       enClasses: {
-        personal: 'purple',
-        financial: 'red',
-        business: 'blue',
-        environmental: 'green'
+        personal: 'en-purple',
+        financial: 'en-red',
+        business: 'en-blue',
+        environmental: 'en-green'
       }
     }
   },
@@ -205,12 +207,6 @@ export default {
           console.log(error)
         }
       )
-      // window.$.get('data/data.oaktown.v1.json', (d) => {
-      //   var values = Object.values(d)
-      //   this.mapData = values.map((md) => { md.hide = false; return md })
-      //   window.d = this.mapData
-      //   this.cards = this.mapData.length
-      // })
     },
     showEnablerModal () {
       // window.$('.ui.basic.modal').modal('show')
@@ -297,17 +293,56 @@ export default {
 .fa:hover {
   color: rgb(86, 86, 230);
 }
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
+.is-flex-row {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  /* align-items: stretch; */
+  /* align-content: space-between; */
 }
-.flex-row .actor {
-  display: inline-block;
+.is-flex-item {
+  /* background-color: aqua !important;
+  border: solid 1px black; */
+  /* display: inline-block; */
+  /* margin: 0 1em 1em 0; */
 }
-.card-content {
-  height: 8em;
-  max-height: 8em !important;
-  }
+.is-flex-item .card {
+  height: 100%;
+}
+.media-content {
+  padding: 1em;
+  overflow: hidden;
+}
+.media-content .subtitle {
+  padding-top: 0.5rem;
+}
+
+/* this two fix the footer at the end of the card */
+.card .card-content {
+  padding: 1em;
+  margin-bottom: 2em;
+}
+.card > footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.4em 1em 0.4em 1em;
+}
+.card > footer.en-purple {
+  background-color: rgba(137, 43, 226, 0.1);
+}
+.card > footer.en-green {
+  background-color: rgba(43, 226, 141, 0.1);
+}
+.card > footer.en-red {
+  background-color: rgba(226, 43, 43, 0.1);
+}
+.card > footer.en-blue {
+  background-color: rgba(43, 113, 226, 0.1);
+}
+/* -- */
+
+/* .card-content {
+  height: 100% !important;
+} */
 </style>
