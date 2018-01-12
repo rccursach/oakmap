@@ -173,38 +173,38 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-  name: "Home",
-  data() {
+  name: 'Home',
+  data () {
     return {
       mapData: [],
       cards: 0,
       enClasses: {
-        personal: "purple",
-        financial: "red",
-        business: "blue",
-        environmental: "green"
+        personal: 'purple',
+        financial: 'red',
+        business: 'blue',
+        environmental: 'green'
       }
-    };
+    }
   },
   methods: {
-    loadData() {
-      axios.get("data/data.oaktown.v1.json").then(
+    loadData () {
+      axios.get('data/data.oaktown.v1.json').then(
         d => {
-          var values = Object.values(d.data);
+          var values = Object.values(d.data)
           this.mapData = values.map(md => {
-            md["hide"] = false;
-            return md;
-          });
-          window.d = this.mapData;
-          this.cards = this.mapData.length;
+            md.hide = false
+            return md
+          })
+          window.d = this.mapData
+          this.cards = this.mapData.length
         },
         error => {
-          console.log(error);
+          console.log(error)
         }
-      );
+      )
       // window.$.get('data/data.oaktown.v1.json', (d) => {
       //   var values = Object.values(d)
       //   this.mapData = values.map((md) => { md.hide = false; return md })
@@ -212,81 +212,81 @@ export default {
       //   this.cards = this.mapData.length
       // })
     },
-    showEnablerModal() {
+    showEnablerModal () {
       // window.$('.ui.basic.modal').modal('show')
     },
-    countCards() {
-      const reducer = (n, o) => n + (o.hide === true ? 1 : 0);
-      this.cards = this.mapData.length - this.mapData.reduce(reducer, 0);
+    countCards () {
+      const reducer = (n, o) => n + (o.hide === true ? 1 : 0)
+      this.cards = this.mapData.length - this.mapData.reduce(reducer, 0)
     },
-    filterCards() {
+    filterCards () {
       // set variables
-      var filters = [];
-      filters.name = document.querySelector("#search_name").value.toLowerCase();
+      var filters = []
+      filters.name = document.querySelector('#search_name').value.toLowerCase()
       filters.stage = document
-        .querySelector("#search_stage")
-        .value.toLowerCase();
+        .querySelector('#search_stage')
+        .value.toLowerCase()
       filters.target = document
-        .querySelector("#search_target")
-        .value.toLowerCase();
+        .querySelector('#search_target')
+        .value.toLowerCase()
       filters.category = document
-        .querySelector("#search_category")
-        .value.toLowerCase();
+        .querySelector('#search_category')
+        .value.toLowerCase()
       filters.enablerType = document
-        .querySelector("#search_enabler")
-        .value.toLowerCase();
+        .querySelector('#search_enabler')
+        .value.toLowerCase()
 
       // filter out empty filters, get filter keys
-      var fks = Object.keys(filters).filter(function(f) {
-        return filters[f] !== "";
-      });
+      var fks = Object.keys(filters).filter(function (f) {
+        return filters[f] !== ''
+      })
 
       // for each object
-      this.mapData.forEach(function(d) {
-        d.hide = false;
+      this.mapData.forEach(function (d) {
+        d.hide = false
         // for eack search key
-        fks.some(function(fk) {
+        fks.some(function (fk) {
           // Use .some to break immediately when d.hide === true
-          if (d[fk] && ["stage", "enablerType"].includes(fk)) {
+          if (d[fk] && ['stage', 'enablerType'].includes(fk)) {
             // if key is one of those
             if (
               !d[fk]
-                .join("")
+                .join('')
                 .toLowerCase()
                 .includes(filters[fk].toLowerCase())
             ) {
               // when the property exists and val != searched val
-              d.hide = true;
+              d.hide = true
             }
-          } else if (fk === "name") {
+          } else if (fk === 'name') {
             // key is 'name', then val don't match substring searched
             if (!d[fk].toLowerCase().includes(filters[fk].toLowerCase())) {
-              d.hide = true;
+              d.hide = true
             }
           } else if (
             d[fk] &&
             d[fk].toLowerCase() !== filters[fk].toLowerCase()
           ) {
             // any other key and direct values don't match
-            d.hide = true;
+            d.hide = true
           } else if (!d[fk]) {
             // there is no key
-            d.hide = true;
+            d.hide = true
           }
-          return d.hide; // break .some if hide === true
-        });
-      });
+          return d.hide // break .some if hide === true
+        })
+      })
       // update count of cards
-      this.countCards();
+      this.countCards()
       // $('div .card:visible').transition('pulse') // <- this is terrible slow, like 6k msec slow
     }
   },
-  created: function() {
-    this.loadData();
+  created: function () {
+    this.loadData()
     // window.$('select.dropdown').dropdown()
-    this.cards = this.mapData.length;
+    this.cards = this.mapData.length
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -301,6 +301,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 .flex-row .actor {
   display: inline-block;
