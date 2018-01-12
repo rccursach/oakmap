@@ -446,6 +446,15 @@ div.arrow-up {
   height: 24em;
 }
 
+/* styles of active elements */
+.active {
+  -webkit-transition: margin-bottom 0.7s;
+  -moz-transition: margin-bottom 0.7s;
+  -ms-transition: margin-bottom 0.7s;
+  -o-transition: margin-bottom 0.7s;
+  transition: margin-bottom 0.7s;
+  margin-bottom: 25em !important;
+}
 .active .card {
   box-shadow: 0px 0px 9px 2px #4f4f4f;
 }
