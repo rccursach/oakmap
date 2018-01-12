@@ -14,39 +14,32 @@
 
     <router-view/>
 
-    <div class="foo">
-      <appfooter/>
-    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
 
   </div>
 </template>
 
 <script>
-import Footer from './components/Footer'
 export default {
   components: {
-    appfooter: Footer
   },
   name: 'app'
 }
 </script>
 
 <style>
-  body {
-    background-color: #FFFFFF;
-  }
-  .ui.menu .item img.logo {
-    margin-right: 1.5em;
-  }
-  .ui.footer.segment {
-    margin: 5em 0em 0em;
-    padding: 5em 0em;
-  }
-  .wireframe {
-    margin-top: 2em;
-  }
-  div .foo {
-    margin-top: calc(100vh - 700px);
+  .footer {
+    margin-top: 4em;
   }
 </style>
 
