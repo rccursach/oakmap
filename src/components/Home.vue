@@ -115,16 +115,17 @@
         
         <div class="column">
           
-          <!-- <div class="container">
+          <div>
             <bars
+              :padding="20"
               :data="[1, 10, 3, 5, 8, 12, 5]"
               :gradient="['#ffbe88', '#ff93df']"
-              :barWidth="40"
+              :barWidth="20"
               :growDuration="1">
             </bars>
-          </div> -->
+          </div>
 
-          <h2 class="title is-4">Matching Providers <span class="">{{cards}}</span></h2>
+          <h2 class="title is-4">Matching Providers <span class="cards-match">{{cards}}</span></h2>
          
           <div class="columns is-multiline is-3 is-mobile">
             <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile" v-for="dat in mapData" :key="dat.id" v-show="!dat.hide">
@@ -344,4 +345,7 @@ export default {
   background-color: rgba(43, 113, 226, 0.1);
 }
 /* -- */
+.cards-match {
+  color: rgb(39, 189, 194);
+}
 </style>
