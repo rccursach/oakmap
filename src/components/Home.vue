@@ -128,7 +128,10 @@
           <h2 class="title is-4">Matching Providers <span class="cards-match">{{cards}}</span></h2>
          
           <div class="columns is-multiline is-3 is-mobile">
-            <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile" v-for="dat in mapData" :key="dat.id" v-show="!dat.hide">
+            <div class="column is-a-preview is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile"
+              v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
+              v-on:click="toggleActive"
+            >
               <div class="card">
                 <div class="card-header">
                   <div class="media-content">
@@ -163,6 +166,12 @@
                     </span>
                   </div>
                 </footer>
+              </div> <!-- end card -->
+              <div class="spacer">
+                <div class="arrow-up"></div>
+              </div>
+              <div class="details" onclick="event.stopPropagation()">
+                hola
               </div>
             </div>
             <!-- end column v-for -->
@@ -276,6 +285,38 @@ export default {
       // update count of cards
       this.countCards()
       // $('div .card:visible').transition('pulse') // <- this is terrible slow, like 6k msec slow
+    },
+    toggleActive (event) {
+      event.preventDefault()
+      var el = event.currentTarget
+      console.log(el)
+
+      if (el.classList.contains('active')) {
+        el.classList.remove('active')
+        let detail = el.querySelector('.details')
+        let spacer = el.querySelector('.spacer')
+        detail.classList.remove('visible')
+        spacer.classList.remove('visible')
+      } else {
+        this.deactivateAll()
+        el.classList.add('active')
+        let detail = el.querySelector('.details')
+        let spacer = el.querySelector('.spacer')
+        detail.classList.add('visible')
+        spacer.classList.add('visible')
+      }
+    },
+    deactivateAll () {
+      var els = document.querySelectorAll('.active')
+      els.forEach(function (el) {
+        if (el.classList.contains('active')) {
+          el.classList.remove('active')
+          let detail = el.querySelector('.details')
+          let spacer = el.querySelector('.spacer')
+          detail.classList.remove('visible')
+          spacer.classList.remove('visible')
+        }
+      })
     }
   },
   created: function () {
@@ -348,4 +389,65 @@ export default {
 .cards-match {
   color: rgb(39, 189, 194);
 }
+
+/* styles for grid expansion*/
+.is-a-preview {
+  cursor: pointer;
+}
+/* spacer and arrow */
+div.spacer {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-height: 1em;
+  max-height: 1em !important;
+}
+div.arrow-up {
+  margin: 0 auto 0 auto;
+	width: 0; 
+	height: 0; 
+	border-left: 1em solid transparent;  /* left arrow slant */
+	border-right: 1em solid transparent; /* right arrow slant */
+	border-bottom: 1em solid #4f4f4f; /* bottom, add background color here */
+	/* font-size: 0; */
+	line-height: 0;
+}
+
+/* details */
+.details {
+  -webkit-transition: height 0.7s;
+  -moz-transition: height 0.7s;
+  -ms-transition: height 0.7s;
+  -o-transition: height 0.7s;
+  transition: height 0.7s;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 0em;
+  background-color: #4f4f4f;
+  color: white;
+  /* margin-top: 1em; */
+}
+
+/* visibility of spacer and details*/
+.spacer.visible {
+  opacity: 1 !important;
+  position: relative;
+}
+.visible {
+  visibility: visible !important;
+}
+.details.visible {
+  opacity: 1 !important;
+  height: 24em;
+}
+
+.active .card {
+  box-shadow: 0px 0px 9px 2px #4f4f4f;
+}
+
 </style>
