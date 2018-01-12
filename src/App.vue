@@ -1,69 +1,45 @@
 <template>
   <div id="app">
-    <div class="ui fixed menu">
-      <div class="ui container">
-        <a href="/" class="header item">
-          Oakland Tech Ecosystem
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/5835034b4c49fcf420658dab_oak-st-fav-32.png"
+            alt="Oakland Tech Ecosystem" xwidth="112" xheight="28">
         </a>
-        <!--
-        <a href="#" class="item">Home</a>
-        <div class="ui simple dropdown item">
-          Dropdown <i class="dropdown icon"></i>
-          <div class="menu">
-            <a class="item" href="#">Link Item</a>
-            <a class="item" href="#">Link Item</a>
-            <div class="divider"></div>
-            <div class="header">Header Item</div>
-            <div class="item">
-              <i class="dropdown icon"></i>
-              Sub Menu
-              <div class="menu">
-                <a class="item" href="#">Link Item</a>
-                <a class="item" href="#">Link Item</a>
-              </div>
-            </div>
-            <a class="item" href="#">Link Item</a>
-          </div>
+        <div class="navbar-item">
+          Oakland Tech Ecosystem
         </div>
-        !-->
       </div>
-    </div>
+    </nav>
 
     <router-view/>
 
-    <div class="foo">
-      <appfooter/>
-    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
 
   </div>
 </template>
 
 <script>
-import Footer from './components/Footer'
 export default {
   components: {
-    appfooter: Footer
   },
   name: 'app'
 }
 </script>
 
 <style>
-  body {
-    background-color: #FFFFFF;
-  }
-  .ui.menu .item img.logo {
-    margin-right: 1.5em;
-  }
-  .ui.footer.segment {
-    margin: 5em 0em 0em;
-    padding: 5em 0em;
-  }
-  .wireframe {
-    margin-top: 2em;
-  }
-  div .foo {
-    margin-top: calc(100vh - 700px);
+  .footer {
+    margin-top: 4em;
   }
 </style>
 
