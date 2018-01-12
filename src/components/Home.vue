@@ -328,6 +328,9 @@ export default {
   width: 100%;
   padding: 0.4em 1em 0.4em 1em;
 }
+/* -- */
+
+/* footer colors */
 .card > footer.en-purple {
   background-color: rgba(137, 43, 226, 0.1);
 }
@@ -341,8 +344,4 @@ export default {
   background-color: rgba(43, 113, 226, 0.1);
 }
 /* -- */
-
-/* .card-content {
-  height: 100% !important;
-} */
 </style>
