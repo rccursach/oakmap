@@ -166,12 +166,6 @@
                   </div>
                 </footer>
               </div> <!-- end card -->
-              <div class="spacer">
-                <div class="arrow-up"></div>
-              </div>
-              <div class="details" onclick="event.stopPropagation()">
-                hola
-              </div>
             </div>
             <!-- end column v-for -->
           </div> <!-- end columns-multi -->
@@ -392,70 +386,6 @@ export default {
 /* styles for grid expansion*/
 .is-a-preview {
   cursor: pointer;
-}
-/* spacer and arrow */
-div.spacer {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  min-height: 1em;
-  max-height: 1em !important;
-}
-div.arrow-up {
-  margin: 0 auto 0 auto;
-	width: 0; 
-	height: 0; 
-	border-left: 1em solid transparent;  /* left arrow slant */
-	border-right: 1em solid transparent; /* right arrow slant */
-	border-bottom: 1em solid #4f4f4f; /* bottom, add background color here */
-	/* font-size: 0; */
-	line-height: 0;
-}
-
-/* details */
-.details {
-  -webkit-transition: height 0.7s;
-  -moz-transition: height 0.7s;
-  -ms-transition: height 0.7s;
-  -o-transition: height 0.7s;
-  transition: height 0.7s;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 0em;
-  background-color: #4f4f4f;
-  color: white;
-  /* margin-top: 1em; */
-}
-
-/* visibility of spacer and details*/
-.spacer.visible {
-  opacity: 1 !important;
-  position: relative;
-}
-.visible {
-  visibility: visible !important;
-}
-.details.visible {
-  opacity: 1 !important;
-  height: 24em;
-}
-
-/* styles of active elements */
-.active {
-  -webkit-transition: margin-bottom 0.7s;
-  -moz-transition: margin-bottom 0.7s;
-  -ms-transition: margin-bottom 0.7s;
-  -o-transition: margin-bottom 0.7s;
-  transition: margin-bottom 0.7s;
-  margin-bottom: 25em !important;
-}
-.active .card {
-  box-shadow: 0px 0px 9px 2px #4f4f4f;
 }
 
 </style>
