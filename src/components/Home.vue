@@ -77,16 +77,16 @@
               <div class="modal-background"></div>
               <div class="modal-content has-text-white">
                   <p class="is-size-2">Enablers can be viewed with the following lenses:</p>
-                  <div>
-                    <div>PERSONAL enablers (mentors, education, etc.)</div>
-                    <div>FINANCIAL enablers (banks, investors, micro-finance, etc.)</div>
-                    <div>BUSINESS enablers (incubators, networking associations, etc.)</div>
-                    <div>ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</div>
-                  </div>
+                  <ul>
+                    <li>PERSONAL enablers (mentors, education, etc.)</li>
+                    <li>FINANCIAL enablers (banks, investors, micro-finance, etc.)</li>
+                    <li>BUSINESS enablers (incubators, networking associations, etc.)</li>
+                    <li>ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</li>
+                  </ul>
               </div>
               <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
             </div>  
-            
+
             <div class="field">
               <button class="button is-primary is-outlined is-rounded" id="search_button" v-on:click.prevent="filterCards()">Find a Fit</button>
             </div>
@@ -123,6 +123,9 @@
               v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
             >
               <div class="card is-clickable"  v-on:click="toggleActive" >
+                <div class="list-providers">
+                  <div v-for="et in dat.enablerType" v-bind:key="et+dat.id" :class="'enabler-dot '+( et != null ? enClasses[et] : '')"></div>
+                </div>
                 <div class="card-header">
                   <div class="media-content">
                     <p class="title is-5">{{ dat.name }}</p>
@@ -135,7 +138,7 @@
                 <div class="card-content">
                   {{ dat.about | truncate(60) }}
                 </div>
-                <footer :class="'card-footer ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')">
+                <footer :class="'card-footer'">
                   <div>
                     <span>
                       <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i></a>
@@ -375,19 +378,28 @@ export default {
 }
 /* -- */
 
-/* footer colors */
-.card > footer.en-purple {
-  background-color: rgba(137, 43, 226, 0.1);
+.list-providers {
+  height: 0.3em;
+  background-color: rgb(220, 220, 220);
 }
-.card > footer.en-green {
-  background-color: rgba(43, 226, 141, 0.1);
+.enabler-dot {
+  height: 100%;
+  min-width: 25%;
+  float: left;
 }
-.card > footer.en-red {
-  background-color: rgba(226, 43, 43, 0.1);
+.en-purple {
+  background-color: rgb(204, 149, 255);
 }
-.card > footer.en-blue {
-  background-color: rgba(43, 113, 226, 0.1);
+.en-green {
+  background-color: rgb(147, 225, 191);
 }
+.en-red {
+  background-color: rgb(254, 143, 143);
+}
+.en-blue {
+  background-color: rgb(151, 191, 255);
+}
+
 /* -- */
 .cards-match {
   color: rgb(39, 189, 194);
