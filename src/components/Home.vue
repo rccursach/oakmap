@@ -76,14 +76,17 @@
             <div class="modal" id="enablers-info">
               <div class="modal-background"></div>
               <div class="modal-content has-text-white">
-                  <p class="is-size-2">Enablers can be viewed with the following lenses:</p>
+                  <p class="is-size-3">Enablers can be viewed with the following lenses:</p>
+                  <br/>
                   <ul>
                     <li>PERSONAL enablers (mentors, education, etc.)</li>
                     <li>FINANCIAL enablers (banks, investors, micro-finance, etc.)</li>
                     <li>BUSINESS enablers (incubators, networking associations, etc.)</li>
                     <li>ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</li>
                   </ul>
+                  <button class="button is-pulled-right is-primary is-outlined is-rounded" v-on:click.prevent="closeModal">Ok</button>
               </div>
+              <br/>
               <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
             </div>  
 
@@ -182,11 +185,12 @@
                     </p>
                   </section>
                   <footer class="modal-card-foot">
-                      <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i></a>
-                      <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i></a>
-                      <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i></a>
+                      <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i> Website</a>
+                      <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i> Twitter</a>
+                      <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i> Address</a>
                   </footer>
                 </div>
+                <!-- <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button> -->
               </div>
               <!-- end modal -->
             </div>
@@ -262,7 +266,6 @@ export default {
       var fks = Object.keys(filters).filter(function (f) {
         return filters[f] !== ''
       })
-
       // for each object
       this.mapData.forEach(function (d) {
         d.hide = false
@@ -300,7 +303,6 @@ export default {
       })
       // update count of cards
       this.countCards()
-      // $('div .card:visible').transition('pulse') // <- this is terrible slow, like 6k msec slow
     },
     closeModal (event) {
       event.preventDefault()
@@ -317,8 +319,6 @@ export default {
     toggleActive (event) {
       event.preventDefault()
       var el = event.currentTarget
-      console.log(el)
-
       var modal = el.parentNode.querySelector('.is-details-modal')
 
       if (modal.classList.contains('is-active')) {
@@ -330,6 +330,7 @@ export default {
     },
     deactivateAll () {
       var els = document.querySelectorAll('.is-details-modal')
+      console.log(els)
       els.forEach(function (el) {
         if (el.classList.contains('is-active')) {
           el.classList.remove('is-active')
@@ -347,6 +348,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.modal-card-foot a {
+  padding-right: 1.3em;
+}
 .links-icons {
   color: gray;
   padding-right: 0.5em;
@@ -422,5 +426,8 @@ export default {
 .modal-card-body {
   min-height: 8em;
 }
-
+/* this fixes long titles */
+p.modal-card-title {
+  width: 95%;
+}
 </style>
