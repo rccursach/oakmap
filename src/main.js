@@ -6,10 +6,13 @@ import router from './router'
 import Bars from 'vuebars'
 import Vue2Filters from 'vue2-filters'
 import 'font-awesome/css/font-awesome.css'
+import Polyfills from './polyfills'
+
 // Require the main Sass manifest file
 require('./assets/sass/main.scss')
 
 Vue.use(Bars)
+Vue.use(Polyfills)
 Vue.use(Vue2Filters)
 
 Vue.config.productionTip = false

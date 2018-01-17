@@ -330,7 +330,6 @@ export default {
     },
     deactivateAll () {
       var els = document.querySelectorAll('.is-details-modal')
-      console.log(els)
       els.forEach(function (el) {
         if (el.classList.contains('is-active')) {
           el.classList.remove('is-active')
