@@ -62,7 +62,7 @@
             </div>
 
             <div class="field">
-              <label class="label" aria-label="Enabler">Enabler <i class="grey icon help" id="help_enabler" v-on:click="showEnablerModal()" ></i></label>
+              <label class="label" aria-label="Enabler">Enabler <i class="links-icons is-clickable fa fa-info" v-on:click.prevent="showEnablerModal()" ></i></label>
               <div class="select is-fullwidth">
                 <select class="" id="search_enabler">
                   <option value=""></option>
@@ -73,28 +73,22 @@
                 </select>
               </div>
             </div>
-
-            <!-- <div class="ui basic modal">
-              <div class="ui icon header">
-                <i class="archive icon"></i>
-                Enablers
+            <div class="modal" id="enablers-info">
+              <div class="modal-background"></div>
+              <div class="modal-content has-text-white">
+                  <p class="is-size-3">Enablers can be viewed with the following lenses:</p>
+                  <br/>
+                  <ul>
+                    <li>PERSONAL enablers (mentors, education, etc.)</li>
+                    <li>FINANCIAL enablers (banks, investors, micro-finance, etc.)</li>
+                    <li>BUSINESS enablers (incubators, networking associations, etc.)</li>
+                    <li>ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</li>
+                  </ul>
+                  <button class="button is-pulled-right is-primary is-outlined is-rounded" v-on:click.prevent="closeModal">Ok</button>
               </div>
-              <div class="content">
-                <h1 class="header">Enablers can be viewed with the following lenses:</h1>
-                <div class="ui huge middle aligned animated list">
-                  <div class="item">PERSONAL enablers (mentors, education, etc.)</div>
-                  <div class="item">FINANCIAL enablers (banks, investors, micro-finance, etc.)</div>
-                  <div class="item">BUSINESS enablers (incubators, networking associations, etc.)</div>
-                  <div class="item">ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</div>
-                </div>
-              </div>
-              <div class="actions">
-                <div class="ui green ok inverted button">
-                  <i class="checkmark icon"></i>
-                  OK
-                </div>
-              </div>
-            </div> -->
+              <br/>
+              <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
+            </div>  
 
             <div class="field">
               <button class="button is-primary is-outlined is-rounded" id="search_button" v-on:click.prevent="filterCards()">Find a Fit</button>
@@ -128,8 +122,13 @@
           <h2 class="title is-4">Matching Providers <span class="cards-match">{{cards}}</span></h2>
          
           <div class="columns is-multiline is-3 is-mobile">
-            <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile" v-for="dat in mapData" :key="dat.id" v-show="!dat.hide">
-              <div class="card">
+            <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile"
+              v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
+            >
+              <div class="card is-clickable"  v-on:click="toggleActive" >
+                <div class="list-providers">
+                  <div v-for="et in dat.enablerType" v-bind:key="et+dat.id" :class="'enabler-dot '+( et != null ? enClasses[et] : '')"></div>
+                </div>
                 <div class="card-header">
                   <div class="media-content">
                     <p class="title is-5">{{ dat.name }}</p>
@@ -141,15 +140,13 @@
                 </div>
                 <div class="card-content">
                   {{ dat.about | truncate(60) }}
-                  {{ dat.enablerType.map(function (e) { return enClasses[e] }).join(' ') }}
                 </div>
-                <footer :class="'card-footer ' + dat.enablerType.map(function (e) { return enClasses[e] }).join(' ')">
+                <footer :class="'card-footer'">
                   <div>
-                    
                     <span>
-                      <a v-if="!!dat.website" :href="dat.website"><i class="fa fa-globe"></i></a>
-                      <a v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="fa fa-twitter"></i></a>
-                      <a v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="fa fa-map"></i></a>
+                      <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i></a>
+                      <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i></a>
+                      <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i></a>
                       &nbsp;
                       <span v-if="!!dat.yearsInOakland" class="is-size-7 has-text-right">
                         <!-- there are two spans because of weird data as long text in some objects -->
@@ -163,7 +160,39 @@
                     </span>
                   </div>
                 </footer>
+              </div> <!-- end card -->
+              <!-- start modal-->
+              <div class="modal is-details-modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">{{ dat.name }}</p>
+                    <button class="delete is-modal-close" aria-label="close" v-on:click="closeModal"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    <p class="subtitle is-7 is-capitalized">
+                      {{ dat.category }}
+                      <br/>
+                      {{ dat.subcategory || '' }}
+                      <br/>
+                      {{ dat.enablerType ? dat.enablerType.join(', ') : '' }}
+                    </p>
+                    <hr/>
+                    {{ dat.about || '. . .'}}
+                    <p>
+                      <br>
+                      {{ dat.yearsInOakland || '?' }} years in Oakland
+                    </p>
+                  </section>
+                  <footer class="modal-card-foot">
+                      <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i> Website</a>
+                      <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i> Twitter</a>
+                      <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i> Address</a>
+                  </footer>
+                </div>
+                <!-- <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button> -->
               </div>
+              <!-- end modal -->
             </div>
             <!-- end column v-for -->
           </div> <!-- end columns-multi -->
@@ -210,7 +239,7 @@ export default {
       )
     },
     showEnablerModal () {
-      // window.$('.ui.basic.modal').modal('show')
+      document.querySelector('#enablers-info').classList.add('is-active')
     },
     countCards () {
       const reducer = (n, o) => n + (o.hide === true ? 1 : 0)
@@ -237,7 +266,6 @@ export default {
       var fks = Object.keys(filters).filter(function (f) {
         return filters[f] !== ''
       })
-
       // for each object
       this.mapData.forEach(function (d) {
         d.hide = false
@@ -275,7 +303,38 @@ export default {
       })
       // update count of cards
       this.countCards()
-      // $('div .card:visible').transition('pulse') // <- this is terrible slow, like 6k msec slow
+    },
+    closeModal (event) {
+      event.preventDefault()
+      // iterate trough at least 5 levels deep
+      var el = event.currentTarget
+      for (var i = 0; i < 5; i++) {
+        if (el.classList.contains('is-active')) {
+          el.classList.remove('is-active')
+          break
+        }
+        el = el.parentNode
+      }
+    },
+    toggleActive (event) {
+      event.preventDefault()
+      var el = event.currentTarget
+      var modal = el.parentNode.querySelector('.is-details-modal')
+
+      if (modal.classList.contains('is-active')) {
+        modal.classList.remove('is-active')
+      } else {
+        this.deactivateAll()
+        modal.classList.add('is-active')
+      }
+    },
+    deactivateAll () {
+      var els = document.querySelectorAll('.is-details-modal')
+      els.forEach(function (el) {
+        if (el.classList.contains('is-active')) {
+          el.classList.remove('is-active')
+        }
+      })
     }
   },
   created: function () {
@@ -288,24 +347,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.fa {
+.modal-card-foot a {
+  padding-right: 1.3em;
+}
+.links-icons {
   color: gray;
+  padding-right: 0.5em;
 }
-.fa:hover {
+.links-icons:hover {
   color: rgb(86, 86, 230);
-}
-.is-flex-row {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* flex-wrap: wrap; */
-  /* align-items: stretch; */
-  /* align-content: space-between; */
-}
-.is-flex-item {
-  /* background-color: aqua !important;
-  border: solid 1px black; */
-  /* display: inline-block; */
-  /* margin: 0 1em 1em 0; */
 }
 .is-flex-item .card {
   height: 100%;
@@ -331,21 +381,52 @@ export default {
 }
 /* -- */
 
-/* footer colors */
-.card > footer.en-purple {
-  background-color: rgba(137, 43, 226, 0.1);
+.list-providers {
+  height: 0.3em;
+  background-color: rgb(220, 220, 220);
 }
-.card > footer.en-green {
-  background-color: rgba(43, 226, 141, 0.1);
+.enabler-dot {
+  height: 100%;
+  min-width: 25%;
+  float: left;
 }
-.card > footer.en-red {
-  background-color: rgba(226, 43, 43, 0.1);
+.en-purple {
+  background-color: rgb(204, 149, 255);
 }
-.card > footer.en-blue {
-  background-color: rgba(43, 113, 226, 0.1);
+.en-green {
+  background-color: rgb(147, 225, 191);
 }
+.en-red {
+  background-color: rgb(254, 143, 143);
+}
+.en-blue {
+  background-color: rgb(151, 191, 255);
+}
+
 /* -- */
 .cards-match {
   color: rgb(39, 189, 194);
+}
+
+/* styles for grid expansion*/
+.is-clickable {
+  cursor: pointer;
+}
+
+.modal-card-title {
+  overflow-wrap: break-word;
+}
+
+.is-modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.modal-card-body {
+  min-height: 8em;
+}
+/* this fixes long titles */
+p.modal-card-title {
+  width: 95%;
 }
 </style>
