@@ -1,1 +1,12 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><link href=https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/5835034b4c49fcf420658dab_oak-st-fav-32.png rel="shortcut icon" type=image/x-icon><link href=https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/583503516f1a34017488280e_oak-st-fav.png rel=apple-touch-icon><title>Oakland Tech Ecosystem Map</title><link href=/static/css/app.8020f02060ece349d902c82155c69e1a.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=static/js/manifest.d8cd5e132de3c68836b7.js></script><script type=text/javascript src=static/js/vendor.4c1eab84418442eeee3d.js></script><script type=text/javascript src=static/js/app.1b5779c0dcc5f49d5547.js></script></body></html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><link href=https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/5835034b4c49fcf420658dab_oak-st-fav-32.png rel="shortcut icon" type=image/x-icon><link href=https://daks2k3a4ib2z.cloudfront.net/57966ac4a71421564bb4e66d/583503516f1a34017488280e_oak-st-fav.png rel=apple-touch-icon><title>Oakland Tech Ecosystem Map</title><script src=https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js></script><style type=text/css>/* fix modals for IE11 */
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .modal-card, .modal-content {
+          margin: inherit !important;
+          max-height: calc(100vh - 40px);
+          width: 640px;
+        }
+        .modal-card-body {
+          min-height: 8em;
+          max-height: 30em;
+        }
+      }</style><link href=/static/css/app.18d303ab54aa3ceb9feaac4efef95ad5.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=static/js/manifest.42dd62af99aeb32f80d1.js></script><script type=text/javascript src=static/js/vendor.74be9323875fcec129aa.js></script><script type=text/javascript src=static/js/app.41705e4046dc83b4ecad.js></script></body></html>
