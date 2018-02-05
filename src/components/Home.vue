@@ -3,8 +3,7 @@
     <!--  -->
     <div class="container">
       <div class="columns">
-        
-        <div class="column is-one-quarter">            
+        <div class="column xis-one-quarter">            
           <form class="form">
             <h4 class="title is-4">Find a good fit:</h4>
 
@@ -106,7 +105,8 @@
             </div>
             -->
         </div>
-        
+      </div>
+      <div class="columns">
         <div class="column">
           
           <div>
@@ -122,7 +122,7 @@
           <h2 class="title is-4">Matching Providers <span class="cards-match">{{cards}}</span></h2>
          
           <div class="columns is-multiline is-3 is-mobile">
-            <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile"
+            <div class="column is-flex-item is-one-quarter-desktop is-one-third-tablet is-half-mobile"
               v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
             >
               <div class="card is-clickable"  v-on:click="toggleActive" >
