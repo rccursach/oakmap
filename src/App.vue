@@ -10,6 +10,16 @@
           Oakland Tech Ecosystem
         </div>
       </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <!--  -->
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item is-pulled-right">
+            <portal-target name="search-form"></portal-target>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <router-view/>
