@@ -49,5 +49,10 @@ export default {
   .footer {
     margin-top: 4em;
   }
+  nav.navbar {
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(40, 40, 40, 0.2);
+    -moz-box-shadow:    0px 3px 0px 0px rgba(40, 40, 40, 0.2);
+    box-shadow:         0px 3px 0px 0px rgba(40, 40, 40, 0.2);
+  }
 </style>
 

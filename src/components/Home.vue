@@ -2,6 +2,9 @@
   <div>
     <!--  -->
     <div class="container">
+    <div class="up-button is-hidden-desktop " v-on:click.prevent="scrollToTop">
+      <i class="fa fa-arrow-up"></i>
+    </div>
       <!-- search -->
       <portal to="search-form">
         <form v-on:submit.prevent="filterCards()">
@@ -46,10 +49,10 @@
                   <div class="title">Find a good fit:</div>
                   <!-- <p class="subtitle">Asdfgh sdfgh er dfg</p> -->
                   <form>
-                    <div class="content is-size-3">
+                    <div class="content is-size-3-desktop is-size-5-mobile">
                       I'm looking for 
                       <div class="nlf-item-box">
-                        <select class="nlf-select-item has-text-light is-size-3 has-text-weight-light" aria-placeholder="category" id="search_category">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="category" id="search_category">
                           <option value="">any institution</option>
                           <option value="Educational Institution">an educational institution</option>
                           <option value="Service Provider">a service provider</option>
@@ -63,7 +66,7 @@
                       offering 
                       <!-- <i class="links-icons is-super is-clickable is-size-6 fa fa-question" v-on:click.prevent="showEnablerModal()"></i> -->
                       <div class="nlf-item-box">
-                        <select class="nlf-select-item has-text-light is-size-3 has-text-weight-light" aria-placeholder="enabler" id="search_enabler">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="enabler" id="search_enabler">
                           <option value="">any</option>
                           <option value="personal">personal</option>
                           <option value="financial">financial</option>
@@ -73,7 +76,7 @@
                       </div>
                       help to people at 
                       <div class="nlf-item-box">
-                        <select class="nlf-select-item has-text-light is-size-3 has-text-weight-light has-text-centered" aria-placeholder="stage" id="search_stage">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light has-text-centered" aria-placeholder="stage" id="search_stage">
                             <option value="">any</option>
                             <option value="inspire">inspire</option>
                             <option value="plan">plan</option>
@@ -85,7 +88,7 @@
                       </div>
                         stage, targeting 
                       <div class="nlf-item-box">
-                        <select class="nlf-select-item has-text-light is-size-3 has-text-weight-light" aria-placeholder="stage" id="search_target">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="stage" id="search_target">
                           <option value="">any</option>
                           <option value="small">small</option>
                           <option value="mid">mid</option>
@@ -96,7 +99,7 @@
                       size business.
                     </div>
                     <div>
-                      <button class="button is-info xis-outlined is-rounded is-pulled-right" id="search_button" v-on:click.prevent="filterCards()">Go</button>
+                      <button class="button is-info xis-outlined is-rounded is-pulled-right-desktop" id="search_button" v-on:click.prevent="filterCards()">Go</button>
                     </div>
                   </form>
                 </article>
@@ -108,7 +111,7 @@
         <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
       </div>
       <!--  -->
-      <div class="columns">
+      <div class="columns" id="main-container">
         <div class="column">
           
           <div class="is-hidden">
@@ -129,7 +132,7 @@
           </div>
          
           <div class="columns is-multiline">
-            <div class="column is-flex-item is-one-quarter-desktop is-one-third-tablet is-half-mobile"
+            <div class="column is-flex-item is-4 is-one-quarter-desktop is-one-third-tablet xis-half-mobile"
               v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
             >
               <div class="card is-clickable"  v-on:click="toggleActive" >
@@ -244,6 +247,9 @@ export default {
           console.log(error)
         }
       )
+    },
+    scrollToTop () {
+      window.scrollTo(0, 0)
     },
     showNlf () {
       document.querySelector('#nlf').classList.add('is-active')
@@ -418,9 +424,9 @@ export default {
 }
 
 /* -- */
-.cards-match {
+/* .cards-match {
   color: rgb(39, 189, 194);
-}
+} */
 
 /* styles for grid expansion*/
 .is-clickable {
@@ -470,6 +476,35 @@ p.modal-card-title {
   /* background: linear-gradient(141deg, #50c2c0 0%, #ff9e88 51%, #ff93df 75%); */
   /* background: linear-gradient(141deg, #ff93df 0%, #ff9e88 51%, #50c2c0 75%); */
   /* background: linear-gradient(141deg, #0fb883 0%, #1fdbc8 51%, #2ce5e8 75%); */
-  margin: 2em 0.8em;
+  margin: 3em 0.8em 1.5em 0.8em;
+}
+
+.up-button {
+  cursor: pointer;
+  display: block;
+  position: fixed;
+  z-index: 100;
+  right: 1em;
+  bottom: 2em;
+  height: 3em;
+  width: 3em;
+  border-radius: 1.5em;
+  text-align: center;
+  background-color: #d25ca133;
+  color: #d25ca199;
+  /* border: 1px solid #d25ca199; */
+}
+.up-button:hover {
+  border: 0;
+  background-color: #d25ca199;
+  color: white;
+}
+
+.modal {
+  z-index: 101;
+}
+
+#main-container {
+  padding: 0 0.5em
 }
 </style>
