@@ -10,6 +10,16 @@
           Oakland Tech Ecosystem
         </div>
       </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <!--  -->
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item is-pulled-right">
+            <portal-target name="search-form"></portal-target>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <router-view/>
@@ -38,6 +48,11 @@ export default {
 <style>
   .footer {
     margin-top: 4em;
+  }
+  nav.navbar {
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(40, 40, 40, 0.2);
+    -moz-box-shadow:    0px 3px 0px 0px rgba(40, 40, 40, 0.2);
+    box-shadow:         0px 3px 0px 0px rgba(40, 40, 40, 0.2);
   }
 </style>
 

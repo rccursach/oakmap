@@ -2,127 +2,137 @@
   <div>
     <!--  -->
     <div class="container">
-      <div class="columns">
-        
-        <div class="column is-one-quarter">            
-          <form class="form">
-            <h4 class="title is-4">Find a good fit:</h4>
-
-            <div class="field" aria-label="Search">
-              <div class="control has-icons-left">
-                <input class="input" type="text" id="search_name" placeholder="Search...">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-search"></i>
-                </span>
-              </div>
+    <div class="up-button is-hidden-desktop " v-on:click.prevent="scrollToTop">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+      <!-- search -->
+      <portal to="search-form">
+        <form v-on:submit.prevent="filterCards()">
+          <div class="field" aria-label="Search">
+            <div class="control has-icons-left">
+              <input class="input" type="text" id="search_name" placeholder="Search..." autocomplete="off">
+              <span class="icon is-small is-left">
+                <i class="fa fa-search"></i>
+              </span>
             </div>
-
-            <div class="field">
-              <label class="label" aria-label="Stage">Stage</label>
-              <div class="select is-fullwidth">
-                <select class="" id="search_stage">
-                  <option value=""></option>
-                  <option value="inspire">Inspire</option>
-                  <option value="plan">Plan</option>
-                  <option value="launch">Launch</option>
-                  <option value="sustain">Sustain</option>
-                  <option value="grow">Grow</option>
-                  <option value="exit">Exit</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="label" aria-label="Target">Target</label>
-              <div class="select is-fullwidth">
-                <select class="" id="search_target">
-                  <option value=""></option>
-                  <option value="small">Small</option>
-                  <option value="mid">Mid</option>
-                  <option value="high">High</option>
-                  <option value="all">All</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="label" aria-label="Category">Category</label>
-              <div class="select is-fullwidth">
-                <select class="" id="search_category">
-                  <option value=""></option>
-                  <option value="Educational Institution">Educational Institution</option>
-                  <option value="Service Provider">Service Provider</option>
-                  <option value="Investor">Investor</option>
-                  <option value="Government">Government</option>
-                  <option value="Lender">Lender</option>
-                  <option value="Association">Association</option>
-                  <option value="Foundation">Foundation</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="label" aria-label="Enabler">Enabler <i class="links-icons is-clickable fa fa-info" v-on:click.prevent="showEnablerModal()" ></i></label>
-              <div class="select is-fullwidth">
-                <select class="" id="search_enabler">
-                  <option value=""></option>
-                  <option value="personal">Personal</option>
-                  <option value="financial">Financial</option>
-                  <option value="business">Business</option>
-                  <option value="environment">Environment</option>
-                </select>
-              </div>
-            </div>
-            <div class="modal" id="enablers-info">
-              <div class="modal-background"></div>
-              <div class="modal-content has-text-white">
-                  <p class="is-size-3">Enablers can be viewed with the following lenses:</p>
-                  <br/>
-                  <ul>
-                    <li>PERSONAL enablers (mentors, education, etc.)</li>
-                    <li>FINANCIAL enablers (banks, investors, micro-finance, etc.)</li>
-                    <li>BUSINESS enablers (incubators, networking associations, etc.)</li>
-                    <li>ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</li>
-                  </ul>
-                  <button class="button is-pulled-right is-primary is-outlined is-rounded" v-on:click.prevent="closeModal">Ok</button>
-              </div>
-              <br/>
-              <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
-            </div>  
-
-            <div class="field">
-              <button class="button is-primary is-outlined is-rounded" id="search_button" v-on:click.prevent="filterCards()">Find a Fit</button>
-            </div>
-          </form>
-            <!--
-            <div class="ui vertical menu">
-            <div class="item">
-              <div class="header">Products</div>
-              <div class="menu">
-                <a class="item">Enterprise</a>
-                <a class="item">Consumer</a>
-              </div>
-            </div>
-            </div>
-            -->
+          </div>
+        </form>
+      </portal>
+      <!--  -->
+      <!-- enablers modal -->
+      <div class="modal" id="enablers-info">
+        <div class="modal-background"></div>
+        <div class="modal-content has-text-white">
+            <p class="is-size-3">Enablers can be viewed with the following lenses:</p>
+            <br/>
+            <ul>
+              <li>PERSONAL enablers (mentors, education, etc.)</li>
+              <li>FINANCIAL enablers (banks, investors, micro-finance, etc.)</li>
+              <li>BUSINESS enablers (incubators, networking associations, etc.)</li>
+              <li>ENVIRONMENT enablers (regulatory framework, infrastructure, culture, etc.)</li>
+            </ul>
+            <button class="button is-pulled-right is-primary is-outlined is-rounded" v-on:click.prevent="closeModal">Ok</button>
         </div>
-        
+        <br/>
+        <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
+      </div>
+      <!-- ends enablers modal -->
+
+      <!-- modal natural language form -->
+      <div class="modal" id="nlf">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="tile is-ancestor is-padded">
+            <div class="tile is-vertical">
+              <div class="tile">
+                <article class="tile is-child notification is-primary is-padded">
+                  <div class="title">Find a good fit:</div>
+                  <!-- <p class="subtitle">Asdfgh sdfgh er dfg</p> -->
+                  <form>
+                    <div class="content is-size-3-desktop is-size-5-mobile">
+                      I'm looking for 
+                      <div class="nlf-item-box">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="category" id="search_category">
+                          <option value="">any institution</option>
+                          <option value="Educational Institution">an educational institution</option>
+                          <option value="Service Provider">a service provider</option>
+                          <option value="Investor">an investor</option>
+                          <option value="Government">a government office</option>
+                          <option value="Lender">a lender</option>
+                          <option value="Association">an association</option>
+                          <option value="Foundation">a foundation</option>
+                        </select>
+                      </div>
+                      offering 
+                      <!-- <i class="links-icons is-super is-clickable is-size-6 fa fa-question" v-on:click.prevent="showEnablerModal()"></i> -->
+                      <div class="nlf-item-box">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="enabler" id="search_enabler">
+                          <option value="">any</option>
+                          <option value="personal">personal</option>
+                          <option value="financial">financial</option>
+                          <option value="business">business</option>
+                          <option value="environment">environment</option>
+                        </select>
+                      </div>
+                      help to people at 
+                      <div class="nlf-item-box">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light has-text-centered" aria-placeholder="stage" id="search_stage">
+                            <option value="">any</option>
+                            <option value="inspire">inspire</option>
+                            <option value="plan">plan</option>
+                            <option value="launch">launch</option>
+                            <option value="sustain">sustain</option>
+                            <option value="grow">grow</option>
+                            <option value="exit">exit</option>
+                        </select>
+                      </div>
+                        stage, targeting 
+                      <div class="nlf-item-box">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="stage" id="search_target">
+                          <option value="">any</option>
+                          <option value="small">small</option>
+                          <option value="mid">mid</option>
+                          <option value="high">high</option>
+                          <option value="all">all</option>
+                        </select>
+                      </div>
+                      size business.
+                    </div>
+                    <div>
+                      <button class="button is-info xis-outlined is-rounded is-pulled-right-desktop" id="search_button" v-on:click.prevent="filterCards()">Go</button>
+                    </div>
+                  </form>
+                </article>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
+      </div>
+      <!--  -->
+      <div class="columns" id="main-container">
         <div class="column">
           
-          <div>
+          <div class="is-hidden">
             <bars
               :padding="20"
-              :data="[1, 10, 3, 5, 8, 12, 5]"
+              :data="[1, 5, 3, 5, 7, 2, 5]"
               :gradient="['#ffbe88', '#ff93df']"
               :barWidth="20"
               :growDuration="1">
             </bars>
           </div>
 
-          <h2 class="title is-4">Matching Providers <span class="cards-match">{{cards}}</span></h2>
+          <div class="columns">
+            <div class="column is-banner">
+              <h2 class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
+              <button class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
+            </div>
+          </div>
          
-          <div class="columns is-multiline is-3 is-mobile">
-            <div class="column is-flex-item is-one-fourth-desktop is-one-third-tablet is-half-mobile"
+          <div class="columns is-multiline">
+            <div class="column is-flex-item is-4 is-one-quarter-desktop is-one-third-tablet xis-half-mobile"
               v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
             >
               <div class="card is-clickable"  v-on:click="toggleActive" >
@@ -131,8 +141,8 @@
                 </div>
                 <div class="card-header">
                   <div class="media-content">
-                    <p class="title is-5">{{ dat.name }}</p>
-                    <p class="subtitle is-7 is-capitalized">
+                    <p class="title is-size-5">{{ dat.name }}</p>
+                    <p class="subtitle is-size-7 is-capitalized">
                       {{ dat.category }}
                       {{ (dat.subcategory ? ': '+dat.subcategory : '') | truncate(50) }}
                     </p>
@@ -238,6 +248,12 @@ export default {
         }
       )
     },
+    scrollToTop () {
+      window.scrollTo(0, 0)
+    },
+    showNlf () {
+      document.querySelector('#nlf').classList.add('is-active')
+    },
     showEnablerModal () {
       document.querySelector('#enablers-info').classList.add('is-active')
     },
@@ -246,6 +262,7 @@ export default {
       this.cards = this.mapData.length - this.mapData.reduce(reducer, 0)
     },
     filterCards () {
+      document.querySelector('#nlf').classList.remove('is-active')
       // set variables
       var filters = []
       filters.name = document.querySelector('#search_name').value.toLowerCase()
@@ -357,6 +374,9 @@ export default {
 .links-icons:hover {
   color: rgb(86, 86, 230);
 }
+.is-super {
+  vertical-align: super;
+}
 .is-flex-item .card {
   height: 100%;
 }
@@ -404,9 +424,9 @@ export default {
 }
 
 /* -- */
-.cards-match {
+/* .cards-match {
   color: rgb(39, 189, 194);
-}
+} */
 
 /* styles for grid expansion*/
 .is-clickable {
@@ -428,5 +448,63 @@ export default {
 /* this fixes long titles */
 p.modal-card-title {
   width: 95%;
+}
+
+.nlf-select-item {
+  display: inline;
+  appearance: none;
+  min-width: 1rem;
+  border: 0;
+  background-color: inherit;
+  /* text-shadow: 1px 1px 3px rgba(150, 150, 150, 0.8); */
+}
+
+.nlf-item-box {
+  display: inline-block;
+  margin: 0;
+  -webkit-box-shadow: 0px 1.5px 0px 0px rgba(255, 255, 255, 1);
+  -moz-box-shadow:    0px 1.5px 0px 0px rgba(255, 255, 255, 1);
+  box-shadow:         0px 1.5px 0px 0px rgba(255, 255, 255, 1);
+}
+
+.is-padded {
+  padding: 2em 2em 1.5em 2em;
+}
+
+.is-banner {
+  background: linear-gradient(41deg, #ec95c8 0%, #dfa8bb 31%, #ffbe88 75%);
+  /* background: linear-gradient(141deg, #50c2c0 0%, #ff9e88 51%, #ff93df 75%); */
+  /* background: linear-gradient(141deg, #ff93df 0%, #ff9e88 51%, #50c2c0 75%); */
+  /* background: linear-gradient(141deg, #0fb883 0%, #1fdbc8 51%, #2ce5e8 75%); */
+  margin: 3em 0.8em 1.5em 0.8em;
+}
+
+.up-button {
+  cursor: pointer;
+  display: block;
+  position: fixed;
+  z-index: 100;
+  right: 1em;
+  bottom: 2em;
+  height: 3em;
+  width: 3em;
+  border-radius: 1.5em;
+  text-align: center;
+  background-color: #d25ca133;
+  color: #d25ca199;
+  /* border: 1px solid #d25ca199; */
+}
+.up-button:hover {
+  border: 0;
+  background-color: #d25ca199;
+  color: white;
+}
+
+.modal {
+  z-index: 101;
+}
+
+#main-container {
+  padding: 0 0.5em
 }
 </style>
