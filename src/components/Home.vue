@@ -2,15 +2,15 @@
   <div>
     <!--  -->
     <div class="container">
-    <div class="up-button is-hidden-desktop " v-on:click.prevent="scrollToTop">
+    <div class="up-button is-hidden-desktop " v-on:click.prevent="scrollToTop" aria-role="presentation">
       <i class="fa fa-arrow-up"></i>
     </div>
       <!-- search -->
       <portal to="search-form">
         <form v-on:submit.prevent="filterCards()">
-          <div class="field" aria-label="Search">
+          <div class="field">
             <div class="control has-icons-left">
-              <input class="input" type="text" id="search_name" placeholder="Search..." autocomplete="off">
+              <input class="input" type="text" tabindex="0" id="search_name" aria-placeholder="Search actor by name" placeholder="Search..." autocomplete="off">
               <span class="icon is-small is-left">
                 <i class="fa fa-search"></i>
               </span>
@@ -20,7 +20,7 @@
       </portal>
       <!--  -->
       <!-- enablers modal -->
-      <div class="modal" id="enablers-info">
+      <div class="modal" id="enablers-info" aria-role="dialog" aria-modal="true">
         <div class="modal-background"></div>
         <div class="modal-content has-text-white">
             <p class="is-size-3">Enablers can be viewed with the following lenses:</p>
@@ -34,12 +34,12 @@
             <button class="button is-pulled-right is-primary is-outlined is-rounded" v-on:click.prevent="closeModal">Ok</button>
         </div>
         <br/>
-        <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
+        <button class="modal-close is-large" aria-role="button" aria-label="close" v-on:click.prevent="closeModal"></button>
       </div>
       <!-- ends enablers modal -->
 
       <!-- modal natural language form -->
-      <div class="modal" id="nlf">
+      <div class="modal" id="nlf" aria-role="dialog" aria-modal="true">
         <div class="modal-background"></div>
         <div class="modal-content">
           <div class="tile is-ancestor is-padded">
@@ -63,18 +63,7 @@
                           <option value="Foundation">a foundation</option>
                         </select>
                       </div>
-                      offering 
-                      <!-- <i class="links-icons is-super is-clickable is-size-6 fa fa-question" v-on:click.prevent="showEnablerModal()"></i> -->
-                      <div class="nlf-item-box">
-                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="enabler" id="search_enabler">
-                          <option value="">any</option>
-                          <option value="personal">personal</option>
-                          <option value="financial">financial</option>
-                          <option value="business">business</option>
-                          <option value="environment">environment</option>
-                        </select>
-                      </div>
-                      help to people at 
+                      helping entrepreneurs at 
                       <div class="nlf-item-box">
                         <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light has-text-centered" aria-placeholder="stage" id="search_stage">
                             <option value="">any</option>
@@ -86,7 +75,17 @@
                             <option value="exit">exit</option>
                         </select>
                       </div>
-                        stage, targeting 
+                        stage in 
+                      <div class="nlf-item-box">
+                        <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="enabler" id="search_enabler">
+                          <option value="">any</option>
+                          <option value="personal">the personal</option>
+                          <option value="financial">the financial</option>
+                          <option value="business">the business</option>
+                          <option value="environment">the environment</option>
+                        </select>
+                      </div>
+                        industry to grow in 
                       <div class="nlf-item-box">
                         <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="stage" id="search_target">
                           <option value="">any</option>
@@ -96,7 +95,7 @@
                           <option value="all">all</option>
                         </select>
                       </div>
-                      size business.
+                      size.
                     </div>
                     <div>
                       <button class="button is-info xis-outlined is-rounded is-pulled-right-desktop" id="search_button" v-on:click.prevent="filterCards()">Go</button>
@@ -108,26 +107,16 @@
           </div>
 
         </div>
-        <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button>
+        <button class="modal-close is-large" aria-role="button" aria-label="close" v-on:click.prevent="closeModal"></button>
       </div>
       <!--  -->
       <div class="columns" id="main-container">
         <div class="column">
-          
-          <div class="is-hidden">
-            <bars
-              :padding="20"
-              :data="[1, 5, 3, 5, 7, 2, 5]"
-              :gradient="['#ffbe88', '#ff93df']"
-              :barWidth="20"
-              :growDuration="1">
-            </bars>
-          </div>
 
           <div class="columns">
             <div class="column is-banner">
-              <h2 class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
-              <button class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
+              <h2 tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
+              <button aria-role="button" tabindex="0" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
             </div>
           </div>
          
@@ -135,7 +124,7 @@
             <div class="column is-flex-item is-4 is-one-quarter-desktop is-one-third-tablet xis-half-mobile"
               v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
             >
-              <div class="card is-clickable"  v-on:click="toggleActive" >
+              <div class="card is-clickable"  v-on:click="toggleActive" aria-role="button" tabindex="0" aria-describedby="actor-modal-title">
                 <div class="list-providers">
                   <div v-for="et in dat.enablerType" v-bind:key="et+dat.id" :class="'enabler-dot '+( et != null ? enClasses[et] : '')"></div>
                 </div>
@@ -172,11 +161,11 @@
                 </footer>
               </div> <!-- end card -->
               <!-- start modal-->
-              <div class="modal is-details-modal">
+              <div class="modal is-details-modal" aria-role="dialog" aria-modal="true">
                 <div class="modal-background"></div>
                 <div class="modal-card">
                   <header class="modal-card-head">
-                    <p class="modal-card-title">{{ dat.name }}</p>
+                    <p class="modal-card-title" id="actor-modal-title">{{ dat.name }}</p>
                     <button class="delete is-modal-close" aria-label="close" v-on:click="closeModal"></button>
                   </header>
                   <section class="modal-card-body">
@@ -252,7 +241,9 @@ export default {
       window.scrollTo(0, 0)
     },
     showNlf () {
-      document.querySelector('#nlf').classList.add('is-active')
+      var nlf = document.querySelector('#nlf')
+      nlf.classList.add('is-active')
+      nlf.focus()
     },
     showEnablerModal () {
       document.querySelector('#enablers-info').classList.add('is-active')
@@ -343,6 +334,7 @@ export default {
       } else {
         this.deactivateAll()
         modal.classList.add('is-active')
+        modal.focus()
       }
     },
     deactivateAll () {
