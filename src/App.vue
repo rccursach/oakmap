@@ -25,7 +25,7 @@
 
     <router-view/>
 
-    <footer class="footer" aria-describedby="footer-text">
+    <footer class="footer" aria-describedby="footer-text" tabindex="0">
       <div class="container">
         <div class="content has-text-centered">
           <p id="footer-text">

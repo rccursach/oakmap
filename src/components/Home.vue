@@ -20,7 +20,7 @@
       </portal>
       <!--  -->
       <!-- enablers modal -->
-      <div class="modal" id="enablers-info" aria-role="dialog" aria-modal="true">
+      <!-- <div class="modal" id="enablers-info" aria-role="dialog" aria-modal="true">
         <div class="modal-background"></div>
         <div class="modal-content has-text-white">
             <p class="is-size-3">Enablers can be viewed with the following lenses:</p>
@@ -35,11 +35,11 @@
         </div>
         <br/>
         <button class="modal-close is-large" aria-role="button" aria-label="close" v-on:click.prevent="closeModal"></button>
-      </div>
+      </div> -->
       <!-- ends enablers modal -->
 
       <!-- modal natural language form -->
-      <div class="modal" id="nlf" aria-role="dialog" aria-modal="true">
+      <div class="modal" id="nlf" aria-role="dialog" aria-modal="true" tabindex="0">
         <div class="modal-background"></div>
         <div class="modal-content">
           <div class="tile is-ancestor is-padded">
@@ -50,52 +50,52 @@
                   <!-- <p class="subtitle">Asdfgh sdfgh er dfg</p> -->
                   <form>
                     <div class="content is-size-3-desktop is-size-5-mobile">
-                      I'm looking for 
+                      <span aria-hidden="true">I'm looking for </span>
                       <div class="nlf-item-box">
                         <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="category" id="search_category">
-                          <option value="">any institution</option>
-                          <option value="Educational Institution">an educational institution</option>
-                          <option value="Service Provider">a service provider</option>
-                          <option value="Investor">an investor</option>
-                          <option value="Government">a government office</option>
-                          <option value="Lender">a lender</option>
-                          <option value="Association">an association</option>
-                          <option value="Foundation">a foundation</option>
+                          <option aria-label="I'm looking for any institution" value="">any institution</option>
+                          <option aria-label="I'm looking for an educational institution" value="Educational Institution">an educational institution</option>
+                          <option aria-label="I'm looking for a service provider" value="Service Provider">a service provider</option>
+                          <option aria-label="I'm looking for an investor" value="Investor">an investor</option>
+                          <option aria-label="I'm looking for a government office" value="Government">a government office</option>
+                          <option aria-label="I'm looking for a lender" value="Lender">a lender</option>
+                          <option aria-label="I'm looking for an association" value="Association">an association</option>
+                          <option aria-label="I'm looking for a foundation" value="Foundation">a foundation</option>
                         </select>
                       </div>
-                      helping entrepreneurs at 
+                      <span aria-hidden="true">helping entrepreneurs at </span>
                       <div class="nlf-item-box">
                         <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light has-text-centered" aria-placeholder="stage" id="search_stage">
-                            <option value="">any</option>
-                            <option value="inspire">inspire</option>
-                            <option value="plan">plan</option>
-                            <option value="launch">launch</option>
-                            <option value="sustain">sustain</option>
-                            <option value="grow">grow</option>
-                            <option value="exit">exit</option>
+                            <option aria-label="helping entrepreneurs at any stage" value="">any</option>
+                            <option aria-label="helping entrepreneurs at inspire stage" value="inspire">inspire</option>
+                            <option aria-label="helping entrepreneurs at plan stage" value="plan">plan</option>
+                            <option aria-label="helping entrepreneurs at launch stage" value="launch">launch</option>
+                            <option aria-label="helping entrepreneurs at sustain stage" value="sustain">sustain</option>
+                            <option aria-label="helping entrepreneurs at grow stage" value="grow">grow</option>
+                            <option aria-label="helping entrepreneurs at exit stage" value="exit">exit</option>
                         </select>
                       </div>
-                        stage in 
+                      <span aria-hidden="true">  stage in </span>
                       <div class="nlf-item-box">
                         <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="enabler" id="search_enabler">
-                          <option value="">any</option>
-                          <option value="personal">the personal</option>
-                          <option value="financial">the financial</option>
-                          <option value="business">the business</option>
-                          <option value="environment">the environment</option>
+                          <option aria-label="in any industry" value="">any</option>
+                          <option aria-label="in the personal industry" value="personal">the personal</option>
+                          <option aria-label="in the financial industry" value="financial">the financial</option>
+                          <option aria-label="in the business industry" value="business">the business</option>
+                          <option aria-label="in the environment industry" value="environment">the environment</option>
                         </select>
                       </div>
-                        industry to grow in 
+                      <span aria-hidden="true">  industry to grow in </span>
                       <div class="nlf-item-box">
                         <select class="nlf-select-item has-text-light is-size-3-desktop is-size-5-mobile has-text-weight-light" aria-placeholder="stage" id="search_target">
-                          <option value="">any</option>
-                          <option value="small">small</option>
-                          <option value="mid">mid</option>
-                          <option value="high">high</option>
-                          <option value="all">all</option>
+                          <option aria-label="to grow in any size" value="">any</option>
+                          <option aria-label="to grow in small size" value="small">small</option>
+                          <option aria-label="to grow in mid size" value="mid">mid</option>
+                          <option aria-label="to grow in high size" value="high">high</option>
+                          <option aria-label="to grow" value="all">all</option>
                         </select>
                       </div>
-                      size.
+                      <span aria-hidden="true">size.</span>
                     </div>
                     <div>
                       <button class="button is-info xis-outlined is-rounded is-pulled-right-desktop" id="search_button" v-on:click.prevent="filterCards()">Go</button>
@@ -115,7 +115,7 @@
 
           <div class="columns">
             <div class="column is-banner">
-              <h2 tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
+              <h2 id="matched-providers" tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
               <button aria-role="button" tabindex="0" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
             </div>
           </div>
@@ -124,7 +124,7 @@
             <div class="column is-flex-item is-4 is-one-quarter-desktop is-one-third-tablet xis-half-mobile"
               v-for="dat in mapData" :key="dat.id" v-show="!dat.hide"
             >
-              <div class="card is-clickable"  v-on:click="toggleActive" aria-role="button" tabindex="0" aria-describedby="actor-modal-title">
+              <div class="card is-clickable" v-on:click="toggleActive" v-on:keyup.enter="toggleActive" aria-role="button" tabindex="0" aria-describedby="actor-modal-title">
                 <div class="list-providers">
                   <div v-for="et in dat.enablerType" v-bind:key="et+dat.id" :class="'enabler-dot '+( et != null ? enClasses[et] : '')"></div>
                 </div>
@@ -143,9 +143,11 @@
                 <footer :class="'card-footer'">
                   <div>
                     <span>
-                      <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i></a>
-                      <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i></a>
-                      <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i></a>
+                      <span aria-hidden="true">
+                        <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i></a>
+                        <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i></a>
+                        <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i></a>
+                      </span>
                       &nbsp;
                       <span v-if="!!dat.yearsInOakland" class="is-size-7 has-text-right">
                         <!-- there are two spans because of weird data as long text in some objects -->
@@ -155,6 +157,7 @@
                         <span v-if="!isNaN(dat.yearsInOakland)">
                           {{ dat.yearsInOakland }} Years in Oakland
                         </span>
+                        <span aria-label="Press enter to see details"></span>
                       </span>
                     </span>
                   </div>
@@ -163,10 +166,10 @@
               <!-- start modal-->
               <div class="modal is-details-modal" aria-role="dialog" aria-modal="true">
                 <div class="modal-background"></div>
-                <div class="modal-card">
+                <div class="modal-card" tabindex="0">
                   <header class="modal-card-head">
-                    <p class="modal-card-title" id="actor-modal-title">{{ dat.name }}</p>
-                    <button class="delete is-modal-close" aria-label="close" v-on:click="closeModal"></button>
+                    <p class="modal-card-title">{{ dat.name }}</p>
+                    <button class="delete is-modal-close" aria-role="buttom" aria-label="close" tabindex="0" v-on:click="closeModal"></button>
                   </header>
                   <section class="modal-card-body">
                     <p class="subtitle is-7 is-capitalized">
@@ -183,10 +186,10 @@
                       {{ dat.yearsInOakland || '?' }} years in Oakland
                     </p>
                   </section>
-                  <footer class="modal-card-foot">
-                      <a target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i> Website</a>
-                      <a target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i> Twitter</a>
-                      <a target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i> Address</a>
+                  <footer class="modal-card-foot" tabindex="0" aria-label="links">
+                      <a tabindex="0" aria-label="visit website" target="_blank" v-if="!!dat.website" :href="dat.website"><i class="links-icons fa fa-globe"></i> Website</a>
+                      <a tabindex="0" aria-label="visit twitter" target="_blank" v-if="!!dat.twitter" :href="'https://twitter.com/'+dat.twitter"><i class="links-icons fa fa-twitter"></i> Twitter</a>
+                      <a tabindex="0" aria-label="find it on maps" target="_blank" v-if="!!dat.address" :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(dat.address)"><i class="links-icons fa fa-map"></i> Address</a>
                   </footer>
                 </div>
                 <!-- <button class="modal-close is-large" aria-label="close" v-on:click.prevent="closeModal"></button> -->
@@ -311,6 +314,9 @@ export default {
       })
       // update count of cards
       this.countCards()
+      // focus oin results banner (for screen readers)
+      var searchRes = document.querySelector('#matched-providers')
+      searchRes.focus()
     },
     closeModal (event) {
       event.preventDefault()
@@ -334,7 +340,8 @@ export default {
       } else {
         this.deactivateAll()
         modal.classList.add('is-active')
-        modal.focus()
+        console.log(document.querySelector('.is-details-modal.is-active > .modal-card'))
+        document.querySelector('.is-details-modal.is-active > .modal-card').focus()
       }
     },
     deactivateAll () {
