@@ -10,7 +10,7 @@
         <form v-on:submit.prevent="filterCards()">
           <div class="field">
             <div class="control has-icons-left">
-              <input class="input" type="text" tabindex="0" id="search_name" aria-placeholder="Search actor by name" placeholder="Search..." autocomplete="off">
+              <input class="input" type="text" tabindex="0" id="search_name" aria-label="Search actor by name" placeholder="Search..." autocomplete="off">
               <span class="icon is-small is-left">
                 <i class="fa fa-search"></i>
               </span>
@@ -116,7 +116,7 @@
           <div class="columns">
             <div class="column is-banner">
               <h2 id="matched-providers" tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
-              <button aria-role="button" tabindex="0" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
+              <button aria-role="button" tabindex="0" aria-label="find an actor by using filters" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
             </div>
           </div>
          
