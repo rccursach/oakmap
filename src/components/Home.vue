@@ -114,6 +114,7 @@
         <div class="column">
 
           <div class="columns">
+            <viz></viz>
             <div class="column is-banner">
               <h2 id="matched-providers" tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
               <button aria-role="button" tabindex="0" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button>
@@ -208,9 +209,13 @@
 
 <script>
 import axios from 'axios'
+import viz from './Viz'
 
 export default {
   name: 'Home',
+  components: {
+    viz
+  },
   data () {
     return {
       mapData: [],
