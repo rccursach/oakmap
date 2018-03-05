@@ -10,7 +10,7 @@
 
           <div class="columns">
             <div class="column is-one-quarter">
-              <filter-form :map-data="mapData"></filter-form>
+              <filter-form :map-data="mapData" @map-filtered="countCards"></filter-form>
             </div>
             <div class="column">
               <div class="column is-banner">
@@ -75,9 +75,13 @@ export default {
       this.cards = this.mapData.length - this.mapData.reduce(reducer, 0)
     }
   },
+  watch: {
+    mapData: function (newMapData) {
+      this.countCards()
+    }
+  },
   created: function () {
     this.loadData()
-    // window.$('select.dropdown').dropdown()
     this.cards = this.mapData.length
   }
 }

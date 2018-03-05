@@ -152,7 +152,10 @@ export default {
         })
       })
       // update count of cards
-      this.countCards()
+      // this.countCards()
+
+      this.$emit('map-filtered', 'ok')
+
       // focus oin results banner (for screen readers)
       var searchRes = document.querySelector('#matched-providers')
       searchRes.focus()
