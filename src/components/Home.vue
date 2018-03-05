@@ -36,6 +36,7 @@ import axios from 'axios'
 import viz from './Viz'
 import cards from './Cards'
 import filterForm from './FilterForm'
+import { EventBus } from '../event-bus.js'
 
 export default {
   name: 'Home',
@@ -61,6 +62,7 @@ export default {
           })
           window.d = this.mapData
           this.cards = this.mapData.length
+          EventBus.$emit('updated-data', 'ok')
         },
         error => {
           console.log(error)

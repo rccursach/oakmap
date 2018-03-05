@@ -76,6 +76,8 @@
   </form>
 </template>
 <script>
+import { EventBus } from '../event-bus.js'
+
 export default {
   name: 'filterForm',
   props: {
@@ -154,7 +156,7 @@ export default {
       // update count of cards
       // this.countCards()
 
-      this.$emit('map-filtered', 'ok')
+      EventBus.$emit('updated-data', 'ok')
 
       // focus oin results banner (for screen readers)
       var searchRes = document.querySelector('#matched-providers')
