@@ -19,12 +19,14 @@ export default {
     return {
       nodes: [],
       width: 840,
-      height: 300
+      height: 300,
+      svg: null
     }
   },
   methods: {
     genChart () {
-      // alert('re rendering')
+      d3.select(this.$el).selectAll('svg').remove()
+      
       this.nodes = this.mapData.filter(d => !d.hide).map(d => {
         return {
           id: d.id,
@@ -39,8 +41,6 @@ export default {
           ]
         }
       })
-
-      // d3.select('svg').delete()
 
       const svg = d3.select(this.$el)
       .append('svg')
@@ -66,8 +66,9 @@ export default {
     this.genChart()
   },
   created: function () {
-    // this.genChart()
-    EventBus.$on('updated-data', () => { this.genChart() })
+    EventBus.$on('updated-data', () => {
+      this.genChart()
+    })
   }
 }
 </script>
