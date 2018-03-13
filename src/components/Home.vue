@@ -2,30 +2,46 @@
   <div>
     <!--  -->
     <div class="container">
-    <div class="up-button is-hidden-desktop " v-on:click.prevent="scrollToTop" aria-role="presentation">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-      <div class="columns" id="main-container">
-        <div class="column">
+      <div class="up-button is-hidden-desktop " v-on:click.prevent="scrollToTop" aria-role="presentation">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-banner">
+          <h2 id="matched-providers" tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
+          <!-- <button aria-role="button" tabindex="0" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button> -->
+        </div>
+      </div>
 
-          <div class="columns">
-            <div class="column is-one-quarter">
-              <filter-form :map-data="mapData" @map-filtered="countCards"></filter-form>
-            </div>
-            <div class="column">
-              <div class="column is-banner">
-                <h2 id="matched-providers" tabindex="0" class="title is-size-4 has-text-white">Matching Providers <span class="xcards-match">{{cards}} </span></h2>
-                <!-- <button aria-role="button" tabindex="0" class="button is-rounded is-info xis-outlined" v-on:click.prevent="showNlf">Find a fit</button> -->
-              </div>
-              <viz :map-data="mapData"></viz>
-            </div>
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <div class="tabs">
+            <ul id="sidebar-tabs">
+              <li class="is-active" v-on:click.prevent="setTab"><a>Filter</a></li>
+              <li v-on:click.prevent="setTab"><a>Explore</a></li>
+            </ul>
           </div>
-         
-          <cards :map-data="mapData"></cards>
+        </div>
+      </div>
+      
+      <div class="columns" id="main-container">
+        <div class="column is-one-quarter" style="overflow-y: auto;">
+          <sidebar v-if="this.tab === 'explore'"></sidebar>
+          <filter-form
+            v-if="this.tab === 'filter'"
+            :map-data="mapData.data"
+            @map-filtered="countCards">
+          </filter-form>
+        </div>
+        <div class="column">
+          <viz :data="mapData.data" :links="mapData.links"></viz>
+        </div>
+      </div>
 
-        </div> <!-- end column -->
+      <div class="columns">
+        <!-- <cards :map-data="mapData"></cards> -->
+      </div>
 
-      </div><!-- end columns -->
     </div>
     <!--  -->
   </div>
@@ -36,55 +52,78 @@ import axios from 'axios'
 import viz from './Viz'
 import cards from './Cards'
 import filterForm from './FilterForm'
-// import { EventBus } from '../event-bus.js'
+import sidebar from './SideBar'
+import { EventBus } from '../event-bus.js'
 
 export default {
   name: 'Home',
   components: {
     viz,
     cards,
-    filterForm
+    filterForm,
+    sidebar
   },
   data () {
     return {
-      mapData: [],
+      mapData: {
+        data: [],
+        links: []
+      },
+      tab: 'filter',
+      stakeholders: [],
       cards: 0
     }
   },
   methods: {
+    setTab (event) {
+      this.tab = event.target.text.toLowerCase()
+      document.querySelectorAll('#sidebar-tabs li.is-active')
+      .forEach(a => {
+        a.classList.remove('is-active')
+      })
+      event.target.parentNode.classList.add('is-active')
+    },
     loadData () {
-      axios.get('data/data.oaktown.v1.json').then(
-        d => {
-          var values = Object.values(d.data)
-          this.mapData = values.map(md => {
-            md.hide = false
-            return md
+      axios.get('data/data.json').then(
+        res => {
+          this.mapData = res.data
+          this.stakeholders = []
+          this.mapData.data.forEach(d => {
+            if (d.type === 'sh') {
+              d.hidden = false
+              this.stakeholders.push(d)
+            }
+            // console.log(d)
           })
-          window.d = this.mapData
-          this.cards = this.mapData.length
-          // EventBus.$emit('updated-data', 'ok')
+          this.countCards()
         },
         error => {
           console.log(error)
         }
       )
+      EventBus.$emit('updated-data', 'ok')
     },
     scrollToTop () {
       window.scrollTo(0, 0)
     },
     countCards () {
-      const reducer = (n, o) => n + (o.hide === true ? 1 : 0)
-      this.cards = this.mapData.length - this.mapData.reduce(reducer, 0)
+      const reducer = function (n, o) {
+        if (o.type === 'sh') {
+          return n + (o.hide === false ? 1 : 0)
+        } else {
+          return 0
+        }
+      }
+      this.cards = this.stakeholders.reduce(reducer, 0)
     }
   },
   watch: {
-    mapData: function (newMapData) {
-      this.countCards()
-    }
+    // mapData: function (newMapData) {
+    //   this.countCards()
+    // }
   },
   created: function () {
     this.loadData()
-    this.cards = this.mapData.length
   }
 }
 </script>
@@ -94,7 +133,9 @@ export default {
 
 .is-banner {
   background: linear-gradient(41deg, #ec95c8 0%, #dfa8bb 31%, #ffbe88 75%);
-  margin: 3em 0.8em 1.5em 0.8em;
+  margin-top: 1.5em;
+  left: 0;
+  right: 0;
 }
 
 .up-button {
