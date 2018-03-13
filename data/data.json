@@ -1,0 +1,1486 @@
+{
+    "data": [
+        {
+            "name": "Main Category of stakeholder",
+            "id": "sht1",
+            "type": "sht"
+        },
+        {
+            "name": "Educational Institution",
+            "id": "sht2",
+            "type": "sht"
+        },
+        {
+            "name": "For-Profit Services",
+            "id": "sht3",
+            "type": "sht"
+        },
+        {
+            "name": "Non-Profit Services",
+            "id": "sht4",
+            "type": "sht"
+        },
+        {
+            "name": "Investor",
+            "id": "sht5",
+            "type": "sht"
+        },
+        {
+            "name": "Government",
+            "id": "sht6",
+            "type": "sht"
+        },
+        {
+            "name": "Lender",
+            "id": "sht7",
+            "type": "sht"
+        },
+        {
+            "name": "Association",
+            "id": "sht8",
+            "type": "sht"
+        },
+        {
+            "name": "Foundation",
+            "id": "sht9",
+            "type": "sht"
+        },
+        {
+            "name": "Base Ventures",
+            "id": "sh1",
+            "stakeholderType": "Investor",
+            "description": "Base Ventures, founded by Erik Moore, is a seed-stage fund investing in technology companies. Current portfolio includes AngelList, StyleSeat, Balanced, InDinero, Virool, SpoonRocket, PlanGrid, Pigeon.ly and others. Successful exits include Socialcam (acquired by Autodesk), and Appstores (acquired by InMobi).",
+            "stage": "P, L, S, G, E",
+            "website": "http://base.ventures/#home",
+            "type": "sh"
+        },
+        {
+            "name": "Berkeley City College",
+            "id": "sh2",
+            "stakeholderType": "Educational Institution",
+            "description": "The Business Department offers transfer programs and non-transfer occupational programs leading to an Associate in Science for Transfer (AS-T) degree, an Associate in Arts (AA) degree, and Certificates of Achievement (CA) and/or Proficiency (CP) in several business areas.",
+            "stage": "I, P, L, S, G, E",
+            "website": "http://www.berkeleycitycollege.edu/wp/business/",
+            "type": "sh"
+        },
+        {
+            "name": "Better Ventures",
+            "id": "sh3",
+            "stakeholderType": "Investor",
+            "description": "Better Ventures is a venture capital firm that provides funding and support to companies creating scalable solutions to some of the world’s biggest challenges. We believe in the power of technology to address the most important issues of our time, from education and work to health and the environment.",
+            "stage": "P, L, S ",
+            "website": "http://www.better.vc",
+            "type": "sh"
+        },
+        {
+            "name": "CARAT",
+            "id": "sh4",
+            "stakeholderType": "Investor",
+            "description": "California Resources and Training (CARAT) is a private non-profit founded in 1994 to integrate and build the capacity of the technical assistance industry in California. As a statewide initiative, CARAT's focus has been on enhancing the quality of technical assistance throughout California. CARAT's intent is to assist in building capacity and encourage and stimulate partnerships between lending institutions and technical assistance providers.",
+            "stage": "S, G. E",
+            "website": "http://caratnet.org/programs.htm",
+            "type": "sh"
+        },
+        {
+            "name": "Centro Community Partners",
+            "id": "sh5",
+            "stakeholderType": "Non-Profit Services",
+            "description": "Centro was created to bridge a gap in the current microenterprise model; a lack of access to capital and business support resources. Centro’s programs foster socioeconomic change in communities by providing business advisory services and leadership development programs that are needed to grow businesses and provide jobs. These businesses improve the lives of the entrepreneurs and their families and benefit the community.",
+            "stage": "P, L, S, G ",
+            "website": "http://centrocommunity.org",
+            "type": "sh"
+        },
+        {
+            "name": "Claremont Creek",
+            "stakeholderType": "Investor",
+            "id": "sh6",
+            "type": "sh"
+        },
+        {
+            "name": "City of Oakland",
+            "stakeholderType": "Government",
+            "id": "sh7",
+            "type": "sh"
+        },
+        {
+            "name": "CSU East Bay",
+            "stakeholderType": "Educational Institution",
+            "id": "sh8",
+            "type": "sh"
+        },
+        {
+            "name": "Cutting Edge Capital",
+            "stakeholderType": "For-Profit Services",
+            "id": "sh9",
+            "type": "sh"
+        },
+        {
+            "name": "Devlabs ventures",
+            "stakeholderType": "Investor",
+            "website": "www.devlabs.vc",
+            "id": "sh10",
+            "type": "sh"
+        },
+        {
+            "name": "East Bay Economic Development Alliance",
+            "stakeholderType": "Non-Profit Services",
+            "id": "sh11",
+            "type": "sh"
+        },
+        {
+            "name": "Floodgate",
+            "stakeholderType": "Investor",
+            "id": "sh12",
+            "type": "sh"
+        },
+        {
+            "name": "Fund Good Jobs",
+            "stakeholderType": "Service Provider",
+            "id": "sh13",
+            "type": "sh"
+        },
+        {
+            "name": "Hack the Hood",
+            "stakeholderType": "Service Provider",
+            "id": "sh14",
+            "type": "sh"
+        },
+        {
+            "name": "Hidden Genius Project",
+            "stakeholderType": "Service Provider",
+            "id": "sh15",
+            "type": "sh"
+        },
+        {
+            "name": "Impact Hub",
+            "stakeholderType": "Service Provider",
+            "id": "sh16",
+            "type": "sh"
+        },
+        {
+            "name": "Inner City Advisors",
+            "stakeholderType": "Service Provider",
+            "id": "sh17",
+            "type": "sh"
+        },
+        {
+            "name": "Kapor Capital",
+            "stakeholderType": "Investor",
+            "id": "sh18",
+            "type": "sh"
+        },
+        {
+            "name": "Kapor Center for Social Impact",
+            "stakeholderType": "Service Provider",
+            "id": "sh19",
+            "type": "sh"
+        },
+        {
+            "name": "Kitchener Oakland",
+            "stakeholderType": "Service Provider",
+            "id": "sh20",
+            "type": "sh"
+        },
+        {
+            "name": "Kiva Zip",
+            "stakeholderType": "Investor",
+            "id": "sh21",
+            "type": "sh"
+        },
+        {
+            "name": "Laney College",
+            "stakeholderType": "University",
+            "id": "sh22",
+            "type": "sh"
+        },
+        {
+            "name": "Lao Family Development",
+            "stakeholderType": "Service Provider",
+            "id": "sh23",
+            "type": "sh"
+        },
+        {
+            "name": "Lawyer's Committee For Civil Rights",
+            "stakeholderType": "Service Provider",
+            "id": "sh24",
+            "type": "sh"
+        },
+        {
+            "name": "Learners Guild",
+            "stakeholderType": "Service Provider",
+            "id": "sh25",
+            "type": "sh"
+        },
+        {
+            "name": "LearnTech Labs",
+            "stakeholderType": "Service Provider",
+            "id": "sh26",
+            "type": "sh"
+        },
+        {
+            "name": "Main Street Launch (Formerly Oakland Business Development Center)",
+            "stakeholderType": "Service Provider",
+            "id": "sh27",
+            "type": "sh"
+        },
+        {
+            "name": "Merrit College",
+            "stakeholderType": "University",
+            "id": "sh28",
+            "type": "sh"
+        },
+        {
+            "name": "Mills College",
+            "stakeholderType": "University",
+            "id": "sh29",
+            "type": "sh"
+        },
+        {
+            "name": "NorCal FDC",
+            "stakeholderType": "Lender",
+            "id": "sh30",
+            "type": "sh"
+        },
+        {
+            "name": "Northern California Community Loan Fund",
+            "stakeholderType": "Lender",
+            "id": "sh31",
+            "type": "sh"
+        },
+        {
+            "name": "Northern California Minority Development Center",
+            "stakeholderType": "Service Provider",
+            "id": "sh32",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland African American Chamber",
+            "stakeholderType": "Association",
+            "id": "sh33",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Digital Literacy Center",
+            "stakeholderType": "Service Provider",
+            "id": "sh34",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Education Association",
+            "stakeholderType": "Association",
+            "id": "sh35",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Export Center",
+            "stakeholderType": "Government",
+            "id": "sh36",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Grown",
+            "id": "sh37",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Hispanic Chamber",
+            "stakeholderType": "Association",
+            "id": "sh38",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Metropolitan Chamber of Commerce",
+            "stakeholderType": "Association",
+            "id": "sh39",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Vietnamese Chamber",
+            "stakeholderType": "Association",
+            "id": "sh40",
+            "type": "sh"
+        },
+        {
+            "name": "Oakland Workforce Development  Board",
+            "stakeholderType": "Service Provider",
+            "id": "sh41",
+            "type": "sh"
+        },
+        {
+            "name": "OCCUR",
+            "id": "sh42",
+            "type": "sh"
+        },
+        {
+            "name": "Operation Hope",
+            "stakeholderType": "Service Provider",
+            "id": "sh43",
+            "type": "sh"
+        },
+        {
+            "name": "Opportunity Fund",
+            "stakeholderType": "Lender",
+            "id": "sh44",
+            "type": "sh"
+        },
+        {
+            "name": "Piedmont Partners Group",
+            "stakeholderType": "Investor",
+            "id": "sh45",
+            "type": "sh"
+        },
+        {
+            "name": "Pro-Arts",
+            "stakeholderType": "Service Provider",
+            "id": "sh46",
+            "type": "sh"
+        },
+        {
+            "name": "Renaissance Center",
+            "stakeholderType": "Service Provider",
+            "id": "sh47",
+            "type": "sh"
+        },
+        {
+            "name": "Sand Dollar LLC",
+            "stakeholderType": "??",
+            "id": "sh48",
+            "type": "sh"
+        },
+        {
+            "name": "SCORE",
+            "stakeholderType": "Service Provider",
+            "id": "sh49",
+            "type": "sh"
+        },
+        {
+            "name": "Small Business Administration (SBA)",
+            "stakeholderType": "Service Provider",
+            "id": "sh50",
+            "type": "sh"
+        },
+        {
+            "name": "Stride Center",
+            "stakeholderType": "Service Provider",
+            "id": "sh51",
+            "type": "sh"
+        },
+        {
+            "name": "Sustainable Business Alliance",
+            "stakeholderType": "Service Provider",
+            "id": "sh52",
+            "type": "sh"
+        },
+        {
+            "name": "Tech Futures Group",
+            "stakeholderType": "Service Provider",
+            "id": "sh53",
+            "type": "sh"
+        },
+        {
+            "name": "Telegraph Academy",
+            "stakeholderType": "Service Provider",
+            "id": "sh54",
+            "type": "sh"
+        },
+        {
+            "name": "TMC Financing",
+            "stakeholderType": "Lender",
+            "id": "sh55",
+            "type": "sh"
+        },
+        {
+            "name": "The California Endonwment ",
+            "stakeholderType": "Foundation",
+            "description": "East Oakland Building Healthy Communities brings together residents, community-based organizations, businesses, health care providers, and government agencies to work towards improved community and individual health. The ultimate goal: a thriving East Oakland.",
+            "stage": "I, P, L, S, G, E",
+            "website": "http://www.calendow.org/places/east-oakland/",
+            "id": "sh56",
+            "type": "sh"
+        },
+        {
+            "name": "The English Center",
+            "stakeholderType": "Service Provider",
+            "description": "CLOSED",
+            "id": "sh57",
+            "type": "sh"
+        },
+        {
+            "name": "The Port Workspaces",
+            "stakeholderType": "Non-Profit Services",
+            "description": "Port Kitchens is a commercial kitchen in Oakland, but we offer much more than a place to cook. Our members get support in building their small food businesses from the floor up. We provide them with the resources they need to grow and connect them with other food professionals. We support an environment of education to expand skills and to encourage creative collaboration. Our goal is the success of our members and creating a community around local food.",
+            "stage": "L, S, G,",
+            "id": "sh58",
+            "type": "sh"
+        },
+        {
+            "name": "The Workers Lab",
+            "stakeholderType": "Investor",
+            "description": "The Workers Lab was created to invest in business models, platforms and organizing strategies, that can lift wages and build power in the workplace.  As a laboratory we relentlessly look for opportunities to be curious, to test new and old approaches to the challenges of our time, and share what we learn with others.",
+            "website": "https://theworkerslab.com/",
+            "id": "sh59",
+            "type": "sh"
+        },
+        {
+            "name": "UC Berkeley",
+            "stakeholderType": "University",
+            "id": "sh60",
+            "type": "sh"
+        },
+        {
+            "name": "Uptima Business Bootcamp",
+            "stakeholderType": "Non-Profit Services",
+            "description": "Uptima Business Bootcamp is an innovative member-owned business accelerator dedicated to providing entrepreneurs with greater access to hands-on education, resources and community to create thriving businesses. The program encourages entrepreneurs to think holistically about their businesses and their impact on the community. Through a combination of evening and weekend workshops, one-on-one mentorship and online learning, Uptima Business Bootcamp supports entrepreneurs through processes for launching, going to market, funding and scaling their businesses. Uptima Business Bootcamp is very different from other business accelerators – as a cooperative, the program participants are member-owners of the accelerator. This means they are part of a real community that shares in the accelerator’s profits and has a say in how the program is run.",
+            "stage": "P, L, S",
+            "website": "http://uptimabootcamp.com/",
+            "id": "sh61",
+            "type": "sh"
+        },
+        {
+            "name": "Working Solutions",
+            "stakeholderType": "Non-Profit Services",
+            "description": "Working Solutions provides underserved microentrepreneurs with the access to capital and resources they need to successfully start or grow viable businesses, and strives to support microenterprise development in an effort to strengthen the local economy, create jobs, and build strong communities. Microloans: of $5,000 to $25,000 for startup and existing businesses, $5,000 to $50,000 for businesses in existence for at least 2 years. Business coaching, advising, education, mentoring and support for every borrower for 5 years.",
+            "stage": "L, S, G",
+            "website": "www.tmcworkingsolutions.org",
+            "id": "sh62",
+            "type": "sh"
+        },
+        {
+            "name": "Youth Business USA",
+            "stakeholderType": "Non-Profit Services",
+            "description": "We’re committed to serving young entrepreneurs facing significant barriers to business ownership and to living wage jobs.\nOver 95% of our young entrepreneurs are underrepresented (eg. low-income, women, people of color, and other underrepresented groups).",
+            "stage": "I, P, L, S, G, E",
+            "website": "https://www.ybusa.org/\n\nSkystheLimit.org",
+            "id": "sh63",
+            "type": "sh"
+        },
+        {
+            "stakeholderName": "Alameda County Small Business Development Center (AC SBDC)",
+            "programName": "One-on-One Advising",
+            "programType": "Coaching & Mentorship",
+            "description": "The Alameda County SBDC offers free, individualized and confidential one-on-one advising for existing businesses and start-ups. Advising services are available by appointment to both existing and start-up business owners. It starts with a simple application.",
+            "id": "pro1",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alameda County Small Business Development Center (AC SBDC)",
+            "programName": "Need Money?",
+            "programType": "Training & Education",
+            "description": "The Alameda County SBDC provides you with advising, practical tools, and access to sources of capital to foster your business growth and success. If you are a small business owner we can help you prepare, review, and present required documents so that you can become “bankable” and “lendable.” When you are ready, we can introduce you to a wide array of financial resources and services.",
+            "id": "pro2",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alameda County Small Business Development Center (AC SBDC)",
+            "programName": "Tech Futures Group",
+            "programType": "Coaching & Mentorship",
+            "description": "Access at no-cost to experienced advisors who specialize in pitching to VCs/Angels, IP issues, financial modeling, and SBIR/STTR grants.",
+            "id": "pro3",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alameda County Small Business Development Center (AC SBDC)",
+            "programName": "International Trade Initiative",
+            "programType": "Coaching & Mentorship",
+            "description": "With 95 percent of the potential customers for U.S. goods and services living outside of the country, exporting provides vast opportunities for American businesses. If you are already exporting to one country, let us help identify other markets to reach. If you have never exported before, make a no-cost appointment with your local SBDC to let us walk you through how to get started. Our goal is to provide guidance and outcomes for small and medium sized businesses to enhance their exporting success. The world’s 95 percent of potential customers are waiting for you.",
+            "id": "pro4",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alliance for Community Development",
+            "programName": "Text Hotline",
+            "programType": "Training & Education",
+            "description": "The Alliance's 24 Hour Text Hotline connects entrepreneurs and business owners to the funding and training they need via text message. Text us anytime at 510-319-9702!",
+            "id": "pro5",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alliance for Community Development",
+            "programName": "Navigational Support",
+            "programType": "Training & Education",
+            "description": "In our free navigational support sessions, we ask entrepreneurs to state their goals and then provide a customized roadmap of business support resources to meet those goals. The Navigator then checks in with the entrepreneur at regular intervals and updates the roadmap accordingly. The goal of this Navigational Support is to increase access to resources and capital for all entrepreneurs, following entrepreneur progress over time to identify gaps and patterns in the Bay Area ecosystem. Entrepreneurs across all stages seeking business training, technical assistance, growth strategies, and lending/funding are invited to take ten minutes to fill out our online form before meeting with one of our trained Bay Area Entrepreneurship Navigators.",
+            "id": "pro6",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alliance for Community Development",
+            "programName": "Peer Support Group",
+            "programType": "Coaching & Mentorship",
+            "description": "Come speak with fellow entrepreneurs and business owners about your experience as an entrepreneur. Meetings are facilitated by a Featured Facilitator. Peer Support Group meetings take place every 1st and 3rd Tuesday at the City of Oakland's Business Assistance Center (270 Frank Ogawa Plaza, Oakland, California) from 6-7pm.",
+            "id": "pro7",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alliance for Community Development",
+            "programName": "Membership Organization",
+            "programType": "Networking",
+            "description": "The Bay Area Entrepreneurship Alliance (BAE Alliance) is a membership organization of entrepreneurs and support providers who believe in common IDEALS (Inclusivity, Diversity, Equity, Accessibility, Local leadership, and Sustainability). Membership includes benefits such as: quarterly feedback reporting, navigational services and staff training, and quarterly membership meetings to better coordinate the rich ecosystem of entrepreneurs, mentors, business service providers, funders, and lenders in the Bay Area.",
+            "id": "pro8",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Alliance for Community Development",
+            "programName": "Bay Area Capital Connections Conference",
+            "programType": "Networking",
+            "description": "For ten years, the ALLIANCE for Community Development has hosted annual Bay Area Capital Connections (BACC) conferences introducing local entrepreneurs to trainers, mentors, investors and lenders. The 2018 Bay Area Capital Connections conference will be the 10th (BACC10) and will take place on Thursday, June 7th at SPUR Oakland, 1544 Broadway, in downtown Oakland. ",
+            "id": "pro9",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Anew America",
+            "programName": "Incubation ",
+            "programType": "Training & Education",
+            "description": "AnewAmerica offers a comprehensive three-year program of support for new American entrepreneurs including micro-business incubation, asset building, and social responsibility. Business Incubation Program, 3-years. First year is a business incubation class, which is comprehensive business training course. During the class they are expected to write a complete business plan. Also receive technical assistance for three years, which entails in-house support or outside agency (pro bono or low cost). ",
+            "id": "pro10",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Anew America",
+            "programName": "Individual Development Account (IDA)",
+            "programType": "Grants",
+            "description": "IDA program, which is an Individual Development Account, which is meant to get follks to save money by offering some sort of match over the period of the program. \"traditionally challenged communities, which include new Americans (new citizens, refugees and immigrants), women, minorities and low to moderate income households.\"",
+            "id": "pro11",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Anew America",
+            "programName": "Classes & Workshops",
+            "programType": "Training & Education",
+            "description": "IDA program, which is an Individual Development Account, which is meant to get follks to save money by offering some sort of match over the period of the program. Offered to traditionally challenged communities, which include new Americans (new citizens, refugees and immigrants), women, minorities and low to moderate income households.",
+            "id": "pro12",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Base Ventures",
+            "programName": "Seed Stage Investment",
+            "programType": "Equity Investment",
+            "description": "Current portfolio includes AngelList, StyleSeat, Balanced, InDinero, Virool, SpoonRocket, PlanGrid, Pigeon.ly and others. Successful exits include Socialcam (acquired by Autodesk), and Appstores (acquired by InMobi).",
+            "id": "pro13",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Berkeley City College",
+            "programName": "Business AA and Certification Programs",
+            "programType": "Training & Education",
+            "description": "The Business Department offers transfer programs and non-transfer occupational programs leading to an Associate in Science for Transfer (AS-T) degree, an Associate in Arts (AA) degree, and Certificates of Achievement (CA) and/or Proficiency (CP) in several business areas.",
+            "id": "pro14",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Better Ventures",
+            "programName": "Social Impact Venture Capital",
+            "programType": "Equity Investment",
+            "description": "We invest at the early stage, in smart and resilient teams building disruptive technologies across the following three themes: opportunity, health, and sustainability.",
+            "id": "pro15",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Better Ventures",
+            "programName": "Pre-Seed Program",
+            "programType": "Training & Education",
+            "description": "Convenes thought leaders, networking, and resources to advance a thriving impact startup ecosystem in Oakland and the greater East Bay. Provides early-stage founders with resources, community, and support to help them launch and grow successful businesses that also benefit the community. PreSeed is also a way for Better Ventures to meet founders early in the company's building stages and identify promising candidates for pre-seed investment. Pre-seed consists of: (1) Fireside Chats: periodic conversations with leaders in impact investing and entrepreneurship, held at ImpactHub Oakland featuring intimate discussions of each leader's career and accomplishments, followed by fast pitches and networking. Our fireside chats are open to the public and are a great way to learn and connect with other founders (2) Founder Roundtables: monthly roundtable discussions during which founders learn best practices at the startup phase, collaborate with other early-stage peers, and practice your pitch, free and open to all startups building technology products that address a pressing social or environmental problem and (3) $100k PreSeed Funding: supporting the East Bay impact startup ecosystem through our commitment to invest in Oakland and Berkeley startups, $100k pre-seed investments on a rolling quarterly basis, typically in startups we have met through our PreSeed program.",
+            "id": "pro16",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Better Ventures",
+            "programName": "Demo Oakland",
+            "programType": "Networking",
+            "description": "Demo Oakland is an opportunity for technologists to demo the fruits of their labor on the big screen at the charming New Parkway Theater. Collaborate with fellow early-stage founders building a better world, and get to know Better Ventures, ICA Fund Good Jobs, and Alliance for Community Development.",
+            "id": "pro17",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "CARAT",
+            "programName": "Technical Assistance Capacity Building Program (TACP)",
+            "programType": "Training & Education",
+            "description": "The TACP program focuses on establishing performance standards for technical assistance providers in California. CARAT has developed and implemented two pilot TAC programs that benchmark current performance in the industry. The findings are published and available upon request. Currently CARAT is in the final stages of implementing a statewide program that certifies Technical Assistance organizations who meet certain performance standards. The TACP assesses the current operations of the technical assistance providers as well as provides tools for building future capacity.",
+            "id": "pro18",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "CARAT",
+            "programName": "Revolving Loan Fund Capacity Building Program",
+            "programType": "Other Professional Services",
+            "description": "For those providing assistance to other entreprenuers, CARAT provides capacity building training to revolving loan fund operators and CDFI's. Customized training seminars include program design and development, portfolio management, credit analysis, microlending, regulatory compliance and loan workouts and loan recovery management, managing high performance loan funds and loan fund capitalization.",
+            "id": "pro19",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "CARAT",
+            "programName": "Customized Post Loan Technical Assistance Program",
+            "programType": "Training & Education",
+            "description": "CARAT has designed a Post Loan Business Assistance Program that trains and compensates business assistance providers to deliver financial analysis consulting services to CEDLI's Co-lending borrowers statewide. A financial analysis software tool has been developed to be used by the business assistance providers.",
+            "id": "pro20",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "CARAT",
+            "programName": "Community Partners Program",
+            "programType": "Other Professional Services",
+            "description": "For those providing assistance to other entreprenuers, CARAT has partnered with CEDLI to develop a Community Partners Program. The program is designed to certify and train selected business assistance providers (Community Partners) to package CEDLI Co-Lending loan applications. Community Partners are eligible to receive a loan packaging fee of 1 percent of the loan amount upon loan booking. The California Economic Development Lending Initiative (CEDLI) Co-Lending Program targets loans to emerging businesses that are unable to qualify for conventional bank financing. To date, 48 economic development nonprofits have been certified as Community Partners.",
+            "id": "pro21",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Centro Community Partners",
+            "programName": "Entrepreneur Readiness Program",
+            "programType": "Training & Education",
+            "description": "Centro’s 14-week Entrepreneur Readiness Program is designed for small business entrepreneurs who are ready to launch or grow their businesses. Currently, the program is aimed at low-income women, minorities, veterans and other underserved entrepreneurs who are based in the San Francisco Bay Area (California). Two opportunities to join each year: Spring and Fall intake.",
+            "id": "pro22",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Centro Community Partners",
+            "programName": "Centro App",
+            "description": "Centro created a mobile app that helps you take a first stab at your business plan through simple steps and activities that anyone can follow. Download it on your phone or tablet and try it out.",
+            "id": "pro23",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Centro Community Partners",
+            "programName": "MBA Student/Adviser Training",
+            "programType": "Training & Education",
+            "description": "If you're enrolled in an MBA or similar degree and want to explore becoming a small business consultant, we can give you hands-on experience while making a difference in someone's life.",
+            "id": "pro24",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Claremont Creek",
+            "id": "pro25",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "City of Oakland",
+            "id": "pro26",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "CSU East Bay",
+            "id": "pro27",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Cutting Edge Capital",
+            "id": "pro28",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Devlabs ventures",
+            "id": "pro29",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "East Bay Economic Development Alliance",
+            "id": "pro30",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Floodgate",
+            "id": "pro31",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Fund Good Jobs",
+            "id": "pro32",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Hack the Hood",
+            "id": "pro33",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Hidden Genius Project",
+            "id": "pro34",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Impact Hub",
+            "id": "pro35",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Inner City Advisors",
+            "id": "pro36",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Kapor Capital",
+            "id": "pro37",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Kapor Center for Social Impact",
+            "id": "pro38",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Kitchener Oakland",
+            "id": "pro39",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Kiva Zip",
+            "id": "pro40",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Laney College",
+            "id": "pro41",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Lao Family Development",
+            "id": "pro42",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Lawyer's Committee For Civil Rights",
+            "id": "pro43",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Learners Guild",
+            "id": "pro44",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "LearnTech Labs",
+            "id": "pro45",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Main Street Launch (Formerly Oakland Business Development Center)",
+            "id": "pro46",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Merrit College",
+            "id": "pro47",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Mills College",
+            "id": "pro48",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "NorCal FDC",
+            "id": "pro49",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Northern California Community Loan Fund",
+            "id": "pro50",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Northern California Minority Development Center",
+            "id": "pro51",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland African American Chamber",
+            "id": "pro52",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Digital Literacy Center",
+            "id": "pro53",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Education Association",
+            "id": "pro54",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Export Center",
+            "id": "pro55",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Grown",
+            "id": "pro56",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Hispanic Chamber",
+            "id": "pro57",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Metropolitan Chamber of Commerce",
+            "id": "pro58",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Vietnamese Chamber",
+            "id": "pro59",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Oakland Workforce Development  Board",
+            "id": "pro60",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "OCCUR",
+            "id": "pro61",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Operation Hope",
+            "id": "pro62",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Opportunity Fund",
+            "id": "pro63",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Piedmont Partners Group",
+            "id": "pro64",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Pro-Arts",
+            "id": "pro65",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Renaissance Center",
+            "id": "pro66",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Sand Dollar LLC",
+            "id": "pro67",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "SCORE",
+            "id": "pro68",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Small Business Administration (SBA)",
+            "id": "pro69",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Stride Center",
+            "id": "pro70",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Sustainable Business Alliance",
+            "id": "pro71",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Tech Futures Group",
+            "id": "pro72",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Telegraph Academy",
+            "id": "pro73",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "TMC Financing",
+            "id": "pro74",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "The California Endonwment ",
+            "id": "pro75",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "The English Center",
+            "id": "pro76",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "The Port Workspaces",
+            "id": "pro77",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "The Workers Lab",
+            "id": "pro78",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "UC Berkeley",
+            "id": "pro79",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Uptima Business Bootcamp",
+            "programName": "Freelancer Accelerator",
+            "programType": "Training & Education",
+            "description": "Are you looking to take a leap to being your own boss? Are you already self-employed and interested in building your practice? Are you struggling to sustain yourself as a self-employed person?  Learn how our Freelancer Program can help you define your service offering, develop client relationships and establish the foundation to thrive as your own boss.",
+            "id": "pro80",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Uptima Business Bootcamp",
+            "programName": "Small Business & Enterprise Accelerator",
+            "programType": "Training & Education",
+            "description": "Do you have a product or service idea that will generate positive community impact, and want to know how to create a business out of it?  Are you looking to understand funding opportunities for your small business or social enterprise? Are you looking to grow your business in a way that aligns with its values?  Learn how our Small Business & Enterprise Program can help you create a thriving small business or social enterprise.",
+            "id": "pro81",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Uptima Business Bootcamp",
+            "programName": "Business Advising Services",
+            "programType": "Coaching & Mentorship",
+            "description": "Are you on a fast track for launching a product or service and need an even more accelerated program? Do you need for specific assistance in only one or a few areas of developing a self-employed practice or business? Are you looking for additional coaching to help keep you on track for developing your self-employed practice or business?  Learn how our Business Advising Services can support you.",
+            "id": "pro82",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Working Solutions",
+            "programName": "Loans",
+            "programType": "Lending",
+            "description": "Working Solutions lends to Startups & Existing Businesses in all 9 counties in the SF Bay Area.\n\nStart-Ups and exiting businesses can receive loans from $5,000 to $50,000.\n\nLoan receipient recieve coaching, training and other types of ongoing support including real estate assistance and navigating governement agencies.",
+            "id": "pro83",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Working Solutions",
+            "programName": "Business Coaching",
+            "programType": "Coaching & Mentorship",
+            "description": "Working Solutions Loan clients take part in quarterly meetings with our Business Services Director to make sure you're on track and connect you with resources.",
+            "id": "pro84",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Working Solutions",
+            "programName": "Mentor Matching",
+            "programType": "Coaching & Mentorship",
+            "description": "Working Solutions Loan clients get a mentor. Matches are made via their new mentor matching system, MicroMentor.",
+            "id": "pro85",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Working Solutions",
+            "programName": "Pro-Bono Services",
+            "programType": "Legal & Accounting",
+            "description": "Working Solutions Loan clients are eligible to receieve pro-bono services via our partners with specialized law firms, Quickbooks and IT/technology pros and other experts who will consult with clients for free. ",
+            "id": "pro86",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "Working Solutions",
+            "programName": "Workshops & Networking",
+            "programType": "Training & Education",
+            "description": "Working Solutions Loan clients are eligble to attend workshops on specialized business topics and access to partner organizations' programs, as well as frequent opportunities to connect with other local small business owners. ",
+            "id": "pro87",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Sky's the Limit",
+            "programType": "Coaching & Mentorship",
+            "description": "SKY’S THE LIMIT (STL) connects young adult entrepreneurs with experienced business advisors and mentors. We want to make it so that anyone with an idea, perseverance and a willingness to learn can get the support they need to build their business.",
+            "id": "pro88",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Oakland's Emerging 100",
+            "programType": "Coaching & Mentorship",
+            "description": "Oakland’s Emerging 100 is a multi-sector collaborative initiative led by Youth Business USA, Youth Impact Hub Oakland and the City of Oakland, Mayor’s Office. We combine the efforts of local government, the community college system, and the business community to level the playing field for entrepreneurs ages 18 to 29, helping them create local businesses, jobs and new sources of income for themselves and their families while learning highly relevant business skills.  ",
+            "id": "pro89",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Intro to Social Entrepreneurship",
+            "programType": "Training & Education",
+            "description": "Our Intro to Social Entrepreneurship is an interactive, one hour workshop that teaches participants about how to use business as a tool for positive social change and inspires them with examples of local youth who have created their own social enterprise projects.",
+            "id": "pro90",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Passion Purpose Project",
+            "programType": "Training & Education",
+            "description": "The Passion Purpose Project is a customizable workshop series that guides participants through the process of creating a business model for their own social enterprise projects. ",
+            "id": "pro91",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Lean Accelerator",
+            "programType": "Training & Education",
+            "description": "Youth Impact Hub Lean Accelerator supports youth in testing their idea using some of the most innovative approaches in business like design thinking, lean start-up and rapid proto-typing. The 18 hour training provides participants with the tools and processes to positively impact the world around them through the development of a Social Enterprise.",
+            "id": "pro92",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Fellowship Program",
+            "programType": "Training & Education",
+            "description": "The Youth Hub Fellowship is a year-long social enterprise incubation training program for low-income youth ages 18-24 to create enterprise projects that increase personal income and directly address problems in the communities.",
+            "id": "pro93",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Oakland's Emerging 100",
+            "programType": "Coaching & Mentorship",
+            "description": "Oakland’s Emerging 100 is a multi-sector collaborative initiative led by Youth Business USA, Youth Impact Hub Oakland and the City of Oakland, Mayor’s Office. We combine the efforts of local government, the community college system, and the business community to level the playing field for entrepreneurs ages 18 to 29, helping them create local businesses, jobs and new sources of income for themselves and their families while learning highly relevant business skills.  ",
+            "id": "pro94",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Co-working Space",
+            "programType": "Physical Space",
+            "description": "Members of the Youth Hub have access to the co-working space. To utilize facilities members can come come in during drop-in hours or schedule a particular amenity. Some of these amenities include: -open work space -Office/Conference space -computer lab -media lab -career center.",
+            "id": "pro95",
+            "type": "pro"
+        },
+        {
+            "stakeholderName": "#REF!",
+            "programName": "Adult Ally Program",
+            "programType": "Coaching & Mentorship",
+            "description": "Youth Impact Hub offer's mentoring and advising opportunities as a way to deepen ones impact and commitment to the Oakland community and its future. Adult allies share their knowledge and experience with Youth Hub participants to support the thinking and leadership of young social change agents.",
+            "id": "pro96",
+            "type": "pro"
+        }
+    ],
+    "links": [
+        {
+            "source": "sht5",
+            "target": "sh1"
+        },
+        {
+            "source": "sht2",
+            "target": "sh2"
+        },
+        {
+            "source": "sht5",
+            "target": "sh3"
+        },
+        {
+            "source": "sht5",
+            "target": "sh4"
+        },
+        {
+            "source": "sht4",
+            "target": "sh5"
+        },
+        {
+            "source": "sht5",
+            "target": "sh6"
+        },
+        {
+            "source": "sht6",
+            "target": "sh7"
+        },
+        {
+            "source": "sht2",
+            "target": "sh8"
+        },
+        {
+            "source": "sht3",
+            "target": "sh9"
+        },
+        {
+            "source": "sht5",
+            "target": "sh10"
+        },
+        {
+            "source": "sht4",
+            "target": "sh11"
+        },
+        {
+            "source": "sht5",
+            "target": "sh12"
+        },
+        {
+            "source": "sht5",
+            "target": "sh18"
+        },
+        {
+            "source": "sht5",
+            "target": "sh21"
+        },
+        {
+            "source": "sht7",
+            "target": "sh30"
+        },
+        {
+            "source": "sht7",
+            "target": "sh31"
+        },
+        {
+            "source": "sht8",
+            "target": "sh33"
+        },
+        {
+            "source": "sht8",
+            "target": "sh35"
+        },
+        {
+            "source": "sht6",
+            "target": "sh36"
+        },
+        {
+            "source": "sht8",
+            "target": "sh38"
+        },
+        {
+            "source": "sht8",
+            "target": "sh39"
+        },
+        {
+            "source": "sht8",
+            "target": "sh40"
+        },
+        {
+            "source": "sht7",
+            "target": "sh44"
+        },
+        {
+            "source": "sht5",
+            "target": "sh45"
+        },
+        {
+            "source": "sht7",
+            "target": "sh55"
+        },
+        {
+            "source": "sht9",
+            "target": "sh56"
+        },
+        {
+            "source": "sht4",
+            "target": "sh58"
+        },
+        {
+            "source": "sht5",
+            "target": "sh59"
+        },
+        {
+            "source": "sht4",
+            "target": "sh61"
+        },
+        {
+            "source": "sht4",
+            "target": "sh62"
+        },
+        {
+            "source": "sht4",
+            "target": "sh63"
+        },
+        {
+            "source": "sh1",
+            "target": "pro13"
+        },
+        {
+            "source": "sh2",
+            "target": "pro14"
+        },
+        {
+            "source": "sh3",
+            "target": "pro15"
+        },
+        {
+            "source": "sh3",
+            "target": "pro16"
+        },
+        {
+            "source": "sh3",
+            "target": "pro17"
+        },
+        {
+            "source": "sh4",
+            "target": "pro18"
+        },
+        {
+            "source": "sh4",
+            "target": "pro19"
+        },
+        {
+            "source": "sh4",
+            "target": "pro20"
+        },
+        {
+            "source": "sh4",
+            "target": "pro21"
+        },
+        {
+            "source": "sh5",
+            "target": "pro22"
+        },
+        {
+            "source": "sh5",
+            "target": "pro23"
+        },
+        {
+            "source": "sh5",
+            "target": "pro24"
+        },
+        {
+            "source": "sh6",
+            "target": "pro25"
+        },
+        {
+            "source": "sh7",
+            "target": "pro26"
+        },
+        {
+            "source": "sh8",
+            "target": "pro27"
+        },
+        {
+            "source": "sh9",
+            "target": "pro28"
+        },
+        {
+            "source": "sh10",
+            "target": "pro29"
+        },
+        {
+            "source": "sh11",
+            "target": "pro30"
+        },
+        {
+            "source": "sh12",
+            "target": "pro31"
+        },
+        {
+            "source": "sh13",
+            "target": "pro32"
+        },
+        {
+            "source": "sh14",
+            "target": "pro33"
+        },
+        {
+            "source": "sh15",
+            "target": "pro34"
+        },
+        {
+            "source": "sh16",
+            "target": "pro35"
+        },
+        {
+            "source": "sh17",
+            "target": "pro36"
+        },
+        {
+            "source": "sh18",
+            "target": "pro37"
+        },
+        {
+            "source": "sh19",
+            "target": "pro38"
+        },
+        {
+            "source": "sh20",
+            "target": "pro39"
+        },
+        {
+            "source": "sh21",
+            "target": "pro40"
+        },
+        {
+            "source": "sh22",
+            "target": "pro41"
+        },
+        {
+            "source": "sh23",
+            "target": "pro42"
+        },
+        {
+            "source": "sh24",
+            "target": "pro43"
+        },
+        {
+            "source": "sh25",
+            "target": "pro44"
+        },
+        {
+            "source": "sh26",
+            "target": "pro45"
+        },
+        {
+            "source": "sh27",
+            "target": "pro46"
+        },
+        {
+            "source": "sh28",
+            "target": "pro47"
+        },
+        {
+            "source": "sh29",
+            "target": "pro48"
+        },
+        {
+            "source": "sh30",
+            "target": "pro49"
+        },
+        {
+            "source": "sh31",
+            "target": "pro50"
+        },
+        {
+            "source": "sh32",
+            "target": "pro51"
+        },
+        {
+            "source": "sh33",
+            "target": "pro52"
+        },
+        {
+            "source": "sh34",
+            "target": "pro53"
+        },
+        {
+            "source": "sh35",
+            "target": "pro54"
+        },
+        {
+            "source": "sh36",
+            "target": "pro55"
+        },
+        {
+            "source": "sh37",
+            "target": "pro56"
+        },
+        {
+            "source": "sh38",
+            "target": "pro57"
+        },
+        {
+            "source": "sh39",
+            "target": "pro58"
+        },
+        {
+            "source": "sh40",
+            "target": "pro59"
+        },
+        {
+            "source": "sh41",
+            "target": "pro60"
+        },
+        {
+            "source": "sh42",
+            "target": "pro61"
+        },
+        {
+            "source": "sh43",
+            "target": "pro62"
+        },
+        {
+            "source": "sh44",
+            "target": "pro63"
+        },
+        {
+            "source": "sh45",
+            "target": "pro64"
+        },
+        {
+            "source": "sh46",
+            "target": "pro65"
+        },
+        {
+            "source": "sh47",
+            "target": "pro66"
+        },
+        {
+            "source": "sh48",
+            "target": "pro67"
+        },
+        {
+            "source": "sh49",
+            "target": "pro68"
+        },
+        {
+            "source": "sh50",
+            "target": "pro69"
+        },
+        {
+            "source": "sh51",
+            "target": "pro70"
+        },
+        {
+            "source": "sh52",
+            "target": "pro71"
+        },
+        {
+            "source": "sh53",
+            "target": "pro72"
+        },
+        {
+            "source": "sh54",
+            "target": "pro73"
+        },
+        {
+            "source": "sh55",
+            "target": "pro74"
+        },
+        {
+            "source": "sh56",
+            "target": "pro75"
+        },
+        {
+            "source": "sh57",
+            "target": "pro76"
+        },
+        {
+            "source": "sh58",
+            "target": "pro77"
+        },
+        {
+            "source": "sh59",
+            "target": "pro78"
+        },
+        {
+            "source": "sh60",
+            "target": "pro79"
+        },
+        {
+            "source": "sh61",
+            "target": "pro80"
+        },
+        {
+            "source": "sh61",
+            "target": "pro81"
+        },
+        {
+            "source": "sh61",
+            "target": "pro82"
+        },
+        {
+            "source": "sh62",
+            "target": "pro83"
+        },
+        {
+            "source": "sh62",
+            "target": "pro84"
+        },
+        {
+            "source": "sh62",
+            "target": "pro85"
+        },
+        {
+            "source": "sh62",
+            "target": "pro86"
+        },
+        {
+            "source": "sh62",
+            "target": "pro87"
+        }
+    ]
+}
