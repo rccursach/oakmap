@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sidebar">
     <div v-if="item.type === 'pro'">
       <h2 class="is-size-4">{{ item.programName || 'Program' }}</h2>
       <p>{{ item.programType }}</p>
@@ -17,7 +17,7 @@
       <h2 class="is-size-4">{{ item.name }}</h2>
     </div>
 
-    <div v-if="item === {}">
+    <div v-if="Object.keys(item).length === 0">
       <p>Please select a node ...</p>
     </div>
 
@@ -42,7 +42,7 @@ export default {
     const vm = this
     EventBus.$on('clicked-node', function (i) {
       vm.item = i
-      console.log(i)
+      // console.log(i)
     })
   },
   mounted () {
@@ -53,7 +53,10 @@ export default {
 }
 </script>
 <style lang="scss">
-
+.sidebar {
+  max-height: 450px;
+  overflow-y: auto;
+}
 </style>
 
 

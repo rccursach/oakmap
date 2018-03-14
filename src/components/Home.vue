@@ -17,8 +17,8 @@
         <div class="column is-one-quarter">
           <div class="tabs">
             <ul id="sidebar-tabs">
-              <li class="is-active" v-on:click.prevent="setTab"><a>Filter</a></li>
-              <li v-on:click.prevent="setTab"><a>Explore</a></li>
+              <li class="is-active" v-on:click.prevent="setTab('explore')"><a>Explore</a></li>
+              <li v-on:click.prevent="setTab('filter')"><a>Filter</a></li>
             </ul>
           </div>
         </div>
@@ -69,19 +69,23 @@ export default {
         data: [],
         links: []
       },
-      tab: 'filter',
+      tab: 'explore',
       stakeholders: [],
       cards: 0
     }
   },
   methods: {
-    setTab (event) {
-      this.tab = event.target.text.toLowerCase()
-      document.querySelectorAll('#sidebar-tabs li.is-active')
+    setTab (name) {
+      document.querySelectorAll('#sidebar-tabs li')
       .forEach(a => {
-        a.classList.remove('is-active')
+        if (a.classList.contains('is-active')) {
+          a.classList.remove('is-active')
+        }
+        if (a.querySelector('a').text && a.querySelector('a').text.toLowerCase() === name) {
+          a.classList.add('is-active')
+          this.tab = name
+        }
       })
-      event.target.parentNode.classList.add('is-active')
     },
     loadData () {
       axios.get('data/data.json').then(
@@ -124,6 +128,10 @@ export default {
   },
   created: function () {
     this.loadData()
+    let _vm = this
+    EventBus.$on('filtered-data', function (i) {
+      _vm.setTab('explore')
+    })
   }
 }
 </script>
