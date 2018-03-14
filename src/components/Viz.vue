@@ -23,7 +23,7 @@ export default {
     return {
       nodes: [],
       width: 840,
-      height: 450,
+      height: 510,
       svg: null
     }
   },
@@ -151,8 +151,8 @@ export default {
 
 <style lang="scss" >
 
-svg {
-  // background-color: rgba(241, 239, 95, 0);
+.viz {
+  background-color: rgba(138, 65, 65, 0.023);
 }
 .links line {
   stroke: #999;

@@ -13,33 +13,37 @@
         </div>
       </div>
 
+      <!-- sidebar -->
       <div class="columns">
         <div class="column is-one-quarter">
+          <!-- tabs -->
           <div class="tabs">
             <ul id="sidebar-tabs">
               <li class="is-active" v-on:click.prevent="setTab('explore')"><a>Explore</a></li>
               <li v-on:click.prevent="setTab('filter')"><a>Filter</a></li>
             </ul>
           </div>
+          <!-- contents -->
+          <div style="overflow-y: auto; height: 450px;">
+            <sidebar v-if="this.tab === 'explore'"></sidebar>
+            <filter-form
+              v-if="this.tab === 'filter'"
+              :map-data="mapData.data"
+              @map-filtered="countCards">
+            </filter-form>
+          </div>
         </div>
-      </div>
-      
-      <div class="columns" id="main-container">
-        <div class="column is-one-quarter" style="overflow-y: auto;">
-          <sidebar v-if="this.tab === 'explore'"></sidebar>
-          <filter-form
-            v-if="this.tab === 'filter'"
-            :map-data="mapData.data"
-            @map-filtered="countCards">
-          </filter-form>
-        </div>
+
+        <!-- viz -->
         <div class="column">
           <viz :data="mapData.data" :links="mapData.links"></viz>
         </div>
       </div>
 
+      <hr>
+
       <div class="columns">
-        <!-- <cards :map-data="mapData"></cards> -->
+        <cards :map-data="stakeholders"></cards>
       </div>
 
     </div>
@@ -97,7 +101,7 @@ export default {
               d.hidden = false
               this.stakeholders.push(d)
             }
-            // console.log(d)
+            console.log(d)
           })
           this.countCards()
         },
@@ -113,7 +117,7 @@ export default {
     countCards () {
       const reducer = function (n, o) {
         if (o.type === 'sh') {
-          return n + (o.hide === false ? 1 : 0)
+          return n + (o.hidden === false ? 1 : 0)
         } else {
           return 0
         }
